@@ -7,19 +7,47 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B07E0D824CA2EB3000D9AD8 /* TransactionDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B07E0D724CA2EB3000D9AD8 /* TransactionDetail.swift */; };
+		1B07E0DC24CA3162000D9AD8 /* AccountList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B07E0DB24CA3162000D9AD8 /* AccountList.swift */; };
+		1B07E0DE24CA316E000D9AD8 /* AccountDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B07E0DD24CA316E000D9AD8 /* AccountDetail.swift */; };
+		1B07E0E124CA34A9000D9AD8 /* TagList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B07E0E024CA34A9000D9AD8 /* TagList.swift */; };
+		1B07E0E324CA34B4000D9AD8 /* TagDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B07E0E224CA34B4000D9AD8 /* TagDetail.swift */; };
+		1B07E0E524CA51FB000D9AD8 /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B07E0E424CA51FB000D9AD8 /* Analytics.swift */; };
 		1B3365E024C9511200028BBC /* BankingUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3365DF24C9511200028BBC /* BankingUIApp.swift */; };
-		1B3365E224C9511200028BBC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3365E124C9511200028BBC /* ContentView.swift */; };
 		1B3365E424C9511400028BBC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B3365E324C9511400028BBC /* Assets.xcassets */; };
 		1B3365E724C9511400028BBC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B3365E624C9511400028BBC /* Preview Assets.xcassets */; };
+		1B3365EF24CA046300028BBC /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3365EE24CA046300028BBC /* Models.swift */; };
+		1B3365F124CA076F00028BBC /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3365F024CA076F00028BBC /* Extentions.swift */; };
+		1B3365F524CA0C9A00028BBC /* TagRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3365F424CA0C9A00028BBC /* TagRow.swift */; };
+		1B3365F724CA0D4D00028BBC /* TransactionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3365F624CA0D4D00028BBC /* TransactionRow.swift */; };
+		1B3365F924CA1B9900028BBC /* AccountRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3365F824CA1B9900028BBC /* AccountRow.swift */; };
+		1B3365FB24CA1C5400028BBC /* AddRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3365FA24CA1C5400028BBC /* AddRow.swift */; };
+		1B3365FE24CA1E4600028BBC /* TransactionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3365FD24CA1E4600028BBC /* TransactionList.swift */; };
+		4BCC8626EA0C7254221C2B55 /* Pods_BankingUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8AB9F98E639636CB577A3C1 /* Pods_BankingUI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1B07E0D724CA2EB3000D9AD8 /* TransactionDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetail.swift; sourceTree = "<group>"; };
+		1B07E0DB24CA3162000D9AD8 /* AccountList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountList.swift; sourceTree = "<group>"; };
+		1B07E0DD24CA316E000D9AD8 /* AccountDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetail.swift; sourceTree = "<group>"; };
+		1B07E0E024CA34A9000D9AD8 /* TagList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagList.swift; sourceTree = "<group>"; };
+		1B07E0E224CA34B4000D9AD8 /* TagDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagDetail.swift; sourceTree = "<group>"; };
+		1B07E0E424CA51FB000D9AD8 /* Analytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Analytics.swift; sourceTree = "<group>"; };
 		1B3365DC24C9511200028BBC /* BankingUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BankingUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B3365DF24C9511200028BBC /* BankingUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankingUIApp.swift; sourceTree = "<group>"; };
-		1B3365E124C9511200028BBC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1B3365E324C9511400028BBC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1B3365E624C9511400028BBC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1B3365E824C9511400028BBC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1B3365EE24CA046300028BBC /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		1B3365F024CA076F00028BBC /* Extentions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
+		1B3365F424CA0C9A00028BBC /* TagRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagRow.swift; sourceTree = "<group>"; };
+		1B3365F624CA0D4D00028BBC /* TransactionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRow.swift; sourceTree = "<group>"; };
+		1B3365F824CA1B9900028BBC /* AccountRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRow.swift; sourceTree = "<group>"; };
+		1B3365FA24CA1C5400028BBC /* AddRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRow.swift; sourceTree = "<group>"; };
+		1B3365FD24CA1E4600028BBC /* TransactionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionList.swift; sourceTree = "<group>"; };
+		47B0D26E0279522B61C9C7CC /* Pods-BankingUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BankingUI.release.xcconfig"; path = "Target Support Files/Pods-BankingUI/Pods-BankingUI.release.xcconfig"; sourceTree = "<group>"; };
+		7CDAE02570CCC1468E8F4A19 /* Pods-BankingUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BankingUI.debug.xcconfig"; path = "Target Support Files/Pods-BankingUI/Pods-BankingUI.debug.xcconfig"; sourceTree = "<group>"; };
+		F8AB9F98E639636CB577A3C1 /* Pods_BankingUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BankingUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,17 +55,47 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BCC8626EA0C7254221C2B55 /* Pods_BankingUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1B07E0D924CA3137000D9AD8 /* Transactions */ = {
+			isa = PBXGroup;
+			children = (
+				1B3365FD24CA1E4600028BBC /* TransactionList.swift */,
+				1B07E0D724CA2EB3000D9AD8 /* TransactionDetail.swift */,
+			);
+			path = Transactions;
+			sourceTree = "<group>";
+		};
+		1B07E0DA24CA314F000D9AD8 /* Accounts */ = {
+			isa = PBXGroup;
+			children = (
+				1B07E0DB24CA3162000D9AD8 /* AccountList.swift */,
+				1B07E0DD24CA316E000D9AD8 /* AccountDetail.swift */,
+			);
+			path = Accounts;
+			sourceTree = "<group>";
+		};
+		1B07E0DF24CA349D000D9AD8 /* Tags */ = {
+			isa = PBXGroup;
+			children = (
+				1B07E0E024CA34A9000D9AD8 /* TagList.swift */,
+				1B07E0E224CA34B4000D9AD8 /* TagDetail.swift */,
+			);
+			path = Tags;
+			sourceTree = "<group>";
+		};
 		1B3365D324C9511200028BBC = {
 			isa = PBXGroup;
 			children = (
 				1B3365DE24C9511200028BBC /* BankingUI */,
 				1B3365DD24C9511200028BBC /* Products */,
+				C4ABCDA92AD497BF9B7155D4 /* Pods */,
+				66083A01BDFA3804A3CB0577 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -52,8 +110,9 @@
 		1B3365DE24C9511200028BBC /* BankingUI */ = {
 			isa = PBXGroup;
 			children = (
+				1B3365FC24CA1CA600028BBC /* Models & Extensions */,
+				1B3365F224CA0C7D00028BBC /* Analytics */,
 				1B3365DF24C9511200028BBC /* BankingUIApp.swift */,
-				1B3365E124C9511200028BBC /* ContentView.swift */,
 				1B3365E324C9511400028BBC /* Assets.xcassets */,
 				1B3365E824C9511400028BBC /* Info.plist */,
 				1B3365E524C9511400028BBC /* Preview Content */,
@@ -69,6 +128,56 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		1B3365F224CA0C7D00028BBC /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				1B07E0E424CA51FB000D9AD8 /* Analytics.swift */,
+				1B07E0DF24CA349D000D9AD8 /* Tags */,
+				1B07E0DA24CA314F000D9AD8 /* Accounts */,
+				1B07E0D924CA3137000D9AD8 /* Transactions */,
+				1B3365F324CA0C8700028BBC /* Rows */,
+			);
+			path = Analytics;
+			sourceTree = "<group>";
+		};
+		1B3365F324CA0C8700028BBC /* Rows */ = {
+			isa = PBXGroup;
+			children = (
+				1B3365F424CA0C9A00028BBC /* TagRow.swift */,
+				1B3365F624CA0D4D00028BBC /* TransactionRow.swift */,
+				1B3365F824CA1B9900028BBC /* AccountRow.swift */,
+				1B3365FA24CA1C5400028BBC /* AddRow.swift */,
+			);
+			path = Rows;
+			sourceTree = "<group>";
+		};
+		1B3365FC24CA1CA600028BBC /* Models & Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1B3365EE24CA046300028BBC /* Models.swift */,
+				1B3365F024CA076F00028BBC /* Extentions.swift */,
+			);
+			path = "Models & Extensions";
+			sourceTree = "<group>";
+		};
+		66083A01BDFA3804A3CB0577 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F8AB9F98E639636CB577A3C1 /* Pods_BankingUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C4ABCDA92AD497BF9B7155D4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7CDAE02570CCC1468E8F4A19 /* Pods-BankingUI.debug.xcconfig */,
+				47B0D26E0279522B61C9C7CC /* Pods-BankingUI.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -76,9 +185,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1B3365EB24C9511400028BBC /* Build configuration list for PBXNativeTarget "BankingUI" */;
 			buildPhases = (
+				8D8F1C6FF5633A3F582B2210 /* [CP] Check Pods Manifest.lock */,
 				1B3365D824C9511200028BBC /* Sources */,
 				1B3365D924C9511200028BBC /* Frameworks */,
 				1B3365DA24C9511200028BBC /* Resources */,
+				26FFFDC5FC80BBC0586A4792 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -133,13 +244,67 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		26FFFDC5FC80BBC0586A4792 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BankingUI/Pods-BankingUI-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BankingUI/Pods-BankingUI-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BankingUI/Pods-BankingUI-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8D8F1C6FF5633A3F582B2210 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BankingUI-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1B3365D824C9511200028BBC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1B3365E224C9511200028BBC /* ContentView.swift in Sources */,
+				1B07E0E124CA34A9000D9AD8 /* TagList.swift in Sources */,
+				1B3365FB24CA1C5400028BBC /* AddRow.swift in Sources */,
+				1B3365FE24CA1E4600028BBC /* TransactionList.swift in Sources */,
+				1B07E0E324CA34B4000D9AD8 /* TagDetail.swift in Sources */,
+				1B3365F124CA076F00028BBC /* Extentions.swift in Sources */,
+				1B3365EF24CA046300028BBC /* Models.swift in Sources */,
+				1B3365F724CA0D4D00028BBC /* TransactionRow.swift in Sources */,
+				1B07E0DC24CA3162000D9AD8 /* AccountList.swift in Sources */,
+				1B07E0E524CA51FB000D9AD8 /* Analytics.swift in Sources */,
+				1B3365F524CA0C9A00028BBC /* TagRow.swift in Sources */,
 				1B3365E024C9511200028BBC /* BankingUIApp.swift in Sources */,
+				1B07E0DE24CA316E000D9AD8 /* AccountDetail.swift in Sources */,
+				1B3365F924CA1B9900028BBC /* AccountRow.swift in Sources */,
+				1B07E0D824CA2EB3000D9AD8 /* TransactionDetail.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,6 +429,7 @@
 		};
 		1B3365EC24C9511400028BBC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7CDAE02570CCC1468E8F4A19 /* Pods-BankingUI.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -286,6 +452,7 @@
 		};
 		1B3365ED24C9511400028BBC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 47B0D26E0279522B61C9C7CC /* Pods-BankingUI.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

@@ -11,7 +11,13 @@ import SwiftUI
 struct BankingUIApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            Analytics()
         }
+    }
+}
+
+struct BankingUIApp_Previews: PreviewProvider {
+    static var previews: some View {
+        Text("Hello, World!")
     }
 }
