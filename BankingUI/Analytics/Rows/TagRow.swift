@@ -24,9 +24,8 @@ struct TagRow: View {
 }
 
 struct BorderedCircle: View {
-    
     @State var color: Color
-    
+
     var body: some View {
         Image(systemName: "circle.fill").resizable()
             .clipShape(Circle())

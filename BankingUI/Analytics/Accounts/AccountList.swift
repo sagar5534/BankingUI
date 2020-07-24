@@ -48,7 +48,7 @@ struct AccountList_Previews: PreviewProvider {
             Account(id: 2, type: "CASH", desc: "My Cash", totalValue: 40),
             Account(id: 3, type: "CREDIT", desc: "VISA", totalValue: -430),
         ]
-        
+
         AccountList(accounts: accounts)
     }
 }

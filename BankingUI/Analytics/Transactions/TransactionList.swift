@@ -16,12 +16,12 @@ struct TransactionList: View {
         List {
             AddRow(name: "Add a Transaction")
             ForEach(transactions, id: \.self) { tran in
-                
+
                 let acc = accounts.first { (account) -> Bool in
                     if account.id == tran.accountID { return true }
                     else { return false }
                 }
-                
+
                 NavigationLink(destination: TransactionDetail(transaction: tran)) {
                     TransactionRow(transaction: tran, account: acc ?? Account(id: 1, type: "Error", desc: "Error", totalValue: 0))
                 }
@@ -52,7 +52,7 @@ struct TransactionList_Previews: PreviewProvider {
             Account(id: 1, type: "BANK", desc: "Debit", totalValue: 500),
             Account(id: 2, type: "CREDIT", desc: "My VISA", totalValue: 850),
         ]
-        
+
         TransactionList(transactions: transactions, accounts: acc)
             .preferredColorScheme(.dark)
     }

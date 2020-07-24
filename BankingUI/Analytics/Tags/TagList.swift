@@ -11,9 +11,9 @@ struct TagList: View {
     @State var isEditMode: EditMode = .inactive
     @State var tags: TagCollection
     @State var showingDetail = false
-    
+
     var newTag = NewTag()
-    
+
     var body: some View {
         List {
             AddRow(name: "Add a Tag")

@@ -94,7 +94,7 @@ class Observer: ObservableObject {
             }
         }
     }
-    
+
     func getAccounts() {
         let parameter = ["user": 1]
         let url = "http://lunar.local:4000/" + "get/account"
@@ -110,7 +110,7 @@ class Observer: ObservableObject {
             }
         }
     }
-    
+
     func getTransactions() {
         let parameter = ["user": 1]
         let url = "http://lunar.local:4000/" + "get/allTransactions"
@@ -121,12 +121,12 @@ class Observer: ObservableObject {
             case let .success(data):
                 var x = data
                 x.sort { (first, second) -> Bool in
-                    
+
                     let date1 = Date.shortformatter.date(from: first.date!)!
                     let date2 = Date.shortformatter.date(from: second.date!)!
-                    
-                    if date1 > date2  { return true }
-                    else{ return false }
+
+                    if date1 > date2 { return true }
+                    else { return false }
                 }
                 self.transactions = x
 
@@ -135,5 +135,4 @@ class Observer: ObservableObject {
             }
         }
     }
-    
 }
