@@ -7,8 +7,8 @@
 //
 
 import Foundation
-import UIKit
 import SwiftUI
+import UIKit
 
 extension Double {
     func toMoney() -> String {
@@ -31,7 +31,7 @@ extension Formatter {
         return formatter
     }()
 }
-    
+
 extension String {
     func asCurrency(locale: Locale) -> String? {
         Formatter.currency.locale = locale
@@ -49,21 +49,21 @@ extension Date {
         formatter.dateFormat = "MMMM d yyyy"
         return formatter
     }()
-    
+
     static let longformatter: DateFormatter = {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
         return dateFormatter
     }()
-    
+
     static let shortformatter: DateFormatter = {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")
         dateFormatter.dateFormat = "yyyy-MM-dd"
         return dateFormatter
     }()
-        
+
     var formatted: String {
         return Date.formatter.string(from: self)
     }

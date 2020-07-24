@@ -2,6 +2,7 @@
 import Foundation
 
 // MARK: - AccountOverview
+
 struct AccountOverview: Codable {
     var overview: Overview?
     var account: AccountCollection?
@@ -19,7 +20,6 @@ struct AccountOverview: Codable {
 // MARK: - Account
 
 struct Account: Codable, Identifiable, Hashable {
-    
     let id, userID: Int?
     var type, desc: String?
     var totalValue: Double?
@@ -45,27 +45,25 @@ struct Account: Codable, Identifiable, Hashable {
         createdAt = nil
         updatedAt = nil
     }
-    
+
     internal init(id: Int? = nil, type: String? = nil, desc: String? = nil, totalValue: Double? = nil) {
         self.id = id
-        self.userID = 1
+        userID = 1
         self.type = type
         self.desc = desc
         self.totalValue = totalValue
-        self.status = "ACTIVE"
-        self.createdAt = ""
-        self.updatedAt = ""
-        self.transactions = []
+        status = "ACTIVE"
+        createdAt = ""
+        updatedAt = ""
+        transactions = []
     }
-    
-    
 }
+
 typealias AccountCollection = [Account]
 
 // MARK: - Transaction
 
 struct Transaction: Codable, Identifiable, Hashable {
-    
     var id, accountID: Int?
     var desc, date: String?
     var amount: Double?
@@ -86,26 +84,24 @@ struct Transaction: Codable, Identifiable, Hashable {
         createdAt = ""
         updatedAt = ""
     }
-    
+
     internal init(id: Int? = nil, desc: String? = nil, amount: Double? = nil) {
         self.id = id
-        self.accountID = 1
+        accountID = 1
         self.desc = desc
-        self.date = "July 30 2020"
+        date = "July 30 2020"
         self.amount = amount
-        self.createdAt = nil
-        self.updatedAt = nil
+        createdAt = nil
+        updatedAt = nil
     }
-    
+
     func toDate() -> Date {
         return Date.formatter.date(from: date!)!
     }
-    
+
     func toDateString() -> String {
         return toDate().formatted
     }
-    
-    
 }
 
 typealias TransactionCollection = [Transaction]
@@ -132,7 +128,6 @@ typealias MonthlySpending = [String: Double]
 // MARK: - TagElement
 
 struct Tag: Codable, Identifiable, Hashable {
-    
     let id, userID: Int?
     let name, color, status, createdAt: String?
     let updatedAt: String?
@@ -142,17 +137,16 @@ struct Tag: Codable, Identifiable, Hashable {
         case userID = "user_id"
         case name, color, status, createdAt, updatedAt
     }
-    
+
     internal init(id: Int?, name: String?, color: String?) {
         self.id = id
-        self.userID = nil
+        userID = nil
         self.name = name
         self.color = color
-        self.status = nil
-        self.createdAt = nil
-        self.updatedAt = nil
+        status = nil
+        createdAt = nil
+        updatedAt = nil
     }
-    
 }
 
 typealias TagCollection = [Tag]

@@ -8,11 +8,10 @@
 import SwiftUI
 
 struct TransactionDetail: View {
-    
     var transaction: Transaction
-    
+
     var body: some View {
-        List{
+        List {
             Text(transaction.amount?.toMoney() ?? "")
         }
         .navigationTitle(transaction.desc ?? "")

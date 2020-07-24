@@ -8,9 +8,8 @@
 import SwiftUI
 
 struct AccountRow: View {
-
     var account: Account
-    
+
     var body: some View {
         HStack {
             Text(account.desc ?? "")
@@ -24,7 +23,6 @@ struct AccountRow: View {
         .padding()
     }
 }
-
 
 struct AccountRow_Previews: PreviewProvider {
     static var previews: some View {

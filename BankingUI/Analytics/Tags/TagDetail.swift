@@ -9,9 +9,9 @@ import SwiftUI
 
 struct TagDetail: View {
     var tag: Tag
-    
+
     var body: some View {
-        List{
+        List {
             Text("")
         }
         .navigationTitle(tag.name ?? "")

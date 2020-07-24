@@ -8,10 +8,9 @@
 import SwiftUI
 
 struct TransactionRow: View {
-    
     var transaction: Transaction
     var account: Account
-    
+
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
@@ -42,14 +41,11 @@ struct TransactionRow: View {
 }
 
 struct TransactionRow_Previews: PreviewProvider {
-    
     static var previews: some View {
-        
         let trans = Transaction(desc: "Starbucks", amount: 15.99)
         let account = Account(type: "BANK", desc: "My Visa", totalValue: 0)
-        
+
         TransactionRow(transaction: trans, account: account)
-            .previewLayout(.fixed(width: 400, height: 90
-            ))
+            .previewLayout(.fixed(width: 400, height: 90))
     }
 }

@@ -9,9 +9,9 @@ import SwiftUI
 
 struct AccountDetail: View {
     var account: Account
-    
+
     var body: some View {
-        List{
+        List {
             Text(account.totalValue?.toMoney() ?? "")
         }
         .navigationTitle(account.desc ?? "")

@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct AddRow: View {
-
     var name: String
 
     var body: some View {
@@ -25,7 +24,6 @@ struct AddRow: View {
         .padding()
     }
 }
-
 
 struct AddRow_Previews: PreviewProvider {
     static var previews: some View {
