@@ -6,22 +6,30 @@
 //
 
 import SwiftUI
-import UIKit
+import Alamofire
 
-class NewTag: ObservableObject {
+
+class NewTagData: ObservableObject {
     @Published var name = ""
     @Published var color = ""
 }
+struct Index {
+    var row: Int
+    var col: Int
+}
+
 
 struct AddTagName: View {
-    // Comes from TagList
-    @EnvironmentObject var data: NewTag
-    @Environment(\.presentationMode) var presentationMode
-    @State private var text = ""
+    
+    @Binding var showingDetail: Bool
+
+    @State private var showingAlert = false
+    @State private var TagData = NewTagData()
+    @State private var text: String = ""
 
     var body: some View {
         NavigationView {
-            VStack(alignment: .center, spacing: 10) {
+            VStack(spacing: 10) {
                 HStack {
                     Text("Name your new Tag")
                         .bold()
@@ -35,41 +43,43 @@ struct AddTagName: View {
 
                 Divider()
                     .padding(.top, 20)
-                TextField(
-                    "type something...",
-                    text: $data.name,
-                    onEditingChanged: { _ in print("changed") },
-                    onCommit: { print("commit") }
-                )
-                .textFieldStyle(PlainTextFieldStyle())
-                .multilineTextAlignment(.leading)
-                .font(.system(size: 50, weight: .light))
+                
+                TextField( "type something...", text: $text)
+                    .textFieldStyle(PlainTextFieldStyle())
+                    .multilineTextAlignment(.leading)
+                    .font(.system(size: CGFloat(50), weight: Font.Weight.medium))
+                    .onChange(of: text) { value in
+                        TagData.name = value
+                        print(value)
+                    }
+                    
                 Spacer()
             }
             .padding(.leading, 20)
             .navigationTitle("Create a Tag")
             .navigationBarItems(
                 leading: Button("Cancel") {
-                    self.presentationMode.wrappedValue.dismiss()
+                    self.showingDetail.toggle()
                 }, trailing: NavigationLink(
-                    destination: AddTagColor(),
+                    destination: AddTagColor(showingDetail: $showingDetail).environmentObject(TagData),
                     label: {
                         Text("Next")
                     }
-                )
+                ).disabled(text.isEmpty)
             )
+            
         }
+
     }
 }
 
-struct Index {
-    var row: Int
-    var col: Int
-}
-
 struct AddTagColor: View {
-    // Comes from TagList
-    @EnvironmentObject var data: NewTag
+
+    @EnvironmentObject var observed: GlobalData
+    @EnvironmentObject var TagData: NewTagData
+    
+    @Binding var showingDetail: Bool
+    @State private var showingAlert = false
     @State private var selected: Index = Index(row: 0, col: 0)
 
     var body: some View {
@@ -90,7 +100,7 @@ struct AddTagColor: View {
 
         VStack(alignment: .center, spacing: 10) {
             HStack {
-                Text("Pick a color for Tag")
+                Text("Pick a color for " + TagData.name)
                     .bold()
                     .fontWeight(.heavy)
                     .foregroundColor(.secondary)
@@ -119,41 +129,71 @@ struct AddTagColor: View {
                             }.onTapGesture {
                                 selected.row = row
                                 selected.col = color
-                                print(UIColor(colors[selected.row][selected.col]).toHexString())
-                                data.color = UIColor(colors[selected.row][selected.col]).toHexString()
+                                TagData.color = UIColor(colors[selected.row][selected.col]).toHexString()
                             }
                         }
                     }
                 }
             }.padding()
-
+            
             Spacer()
         }
         .padding(.leading, 20)
         .navigationTitle("Create a Tag")
         .navigationBarItems(
-            trailing: NavigationLink(
-                destination: AddTagName(),
-                label: {
-                    Text("Done")
-                }
-            )
+            trailing: Button(action: {
+                createCall(name: TagData.name, color: TagData.color)
+            }, label: {
+                Text("Done")
+            })
         )
         .onAppear {
-            data.color = colors[selected.row][selected.col].description
-            print(UIColor(colors[selected.row][selected.col]).toHexString())
+            TagData.color = UIColor(colors[selected.row][selected.col]).toHexString()
+        }
+        .alert(isPresented: $showingAlert) {
+            Alert(
+                title: Text("Sorry!"),
+                message: Text("An Error Occured"),
+                primaryButton: .default(Text("Try Again"), action: {
+                    createCall(name: TagData.name, color: TagData.color)
+                }),
+                secondaryButton: .cancel({
+                    self.showingDetail.toggle()
+                }))
         }
     }
+    
+    func createCall(name: String, color: String) {
+        let url = "http://lunar.local:4000/" + "create/tag"
+        let parameter = [
+            "user": 1,
+            "name": name,
+            "color": color,
+        ] as [String: Any]
+        
+        AF.request(url, method: .post, parameters: parameter, encoding: JSONEncoding.default).responseDecodable(of: Tag.self) { response in
+
+            switch response.result {
+            case let .success(data):
+                observed.tags.append(data)
+                self.showingDetail.toggle()
+            case let .failure(err):
+                showingAlert.toggle()
+            }
+        }
+    }
+    
 }
 
 struct AddTag_Previews: PreviewProvider {
     static var previews: some View {
-        let data = NewTag()
+        
+        let data = NewTagData()
 
         Group {
-            AddTagName().environmentObject(data)
+            AddTagName(showingDetail: .constant(true)).environmentObject(data)
             NavigationView {
-                AddTagColor().environmentObject(data)
+                AddTagColor(showingDetail: .constant(true)).environmentObject(data)
             }
         }
     }

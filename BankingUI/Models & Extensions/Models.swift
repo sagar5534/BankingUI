@@ -1,5 +1,6 @@
 
 import Foundation
+import Alamofire
 
 // MARK: - AccountOverview
 
@@ -61,8 +62,18 @@ struct Account: Codable, Identifiable, Hashable {
 
 typealias AccountCollection = [Account]
 
-// MARK: - Transaction
+extension AccountCollection {
+    
+    func getAccount(accountId: Int) -> Account {
+        let acc = self.first { (account) -> Bool in
+            if account.id == accountId { return true }
+            else { return false }
+        }
+        return acc ?? Account(id: 1, type: "Error", desc: "Error", totalValue: 0)
+    }
+}
 
+// MARK: - Transaction
 struct Transaction: Codable, Identifiable, Hashable {
     var id, accountID: Int?
     var desc, date: String?

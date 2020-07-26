@@ -20,6 +20,8 @@ struct TransactionDetail: View {
 
 struct TransactionDetail_Previews: PreviewProvider {
     static var previews: some View {
-        TransactionDetail(transaction: Transaction(id: 1, desc: "Starbucks", amount: 89))
+        NavigationView{
+            TransactionDetail(transaction: Transaction(id: 1, desc: "Starbucks", amount: 89))
+        }
     }
 }

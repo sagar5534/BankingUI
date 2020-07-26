@@ -8,21 +8,21 @@
 import SwiftUI
 
 struct TagList: View {
+    
+    @EnvironmentObject var data: GlobalData
+
     @State var isEditMode: EditMode = .inactive
-    @State var tags: TagCollection
     @State var showingDetail = false
 
-    var newTag = NewTag()
+    var newTag = NewTagData()
 
     var body: some View {
         List {
             AddRow(name: "Add a Tag")
                 .onTapGesture {
                     self.showingDetail.toggle()
-                }.sheet(isPresented: $showingDetail) {
-                    AddTagName().environmentObject(newTag)
                 }
-            ForEach(tags, id: \.self) { tag in
+            ForEach(data.tags, id: \.self) { tag in
 
                 NavigationLink(destination: TagDetail(tag: tag)) {
                     TagRow(name: tag.name ?? "", color: .init(UIColor(hex: tag.color ?? "") ?? .red))
@@ -36,19 +36,26 @@ struct TagList: View {
         .navigationBarItems(trailing: EditButton())
         .navigationViewStyle(DefaultNavigationViewStyle())
         .environment(\.editMode, self.$isEditMode)
+        .sheet(isPresented: $showingDetail) {
+            AddTagName(showingDetail: $showingDetail).environmentObject(newTag).environmentObject(data)
+        }
     }
 
     func delete(at offsets: IndexSet) {
-        tags.remove(atOffsets: offsets)
+        data.deleteTag(id: offsets.first!)
+        data.tags.remove(atOffsets: offsets)
     }
 }
 
 struct TagList_Previews: PreviewProvider {
     static var previews: some View {
-        let tags: TagCollection = [
-            Tag(id: 1, name: "Shopping", color: "#FF0000"),
-        ]
-
-        TagList(tags: tags)
+        
+        let observed = GlobalData()
+        
+        NavigationView{
+            TagList()
+                .environmentObject(observed)
+        }
+        
     }
 }

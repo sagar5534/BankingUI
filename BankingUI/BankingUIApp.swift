@@ -9,15 +9,20 @@ import SwiftUI
 
 @main
 struct BankingUIApp: App {
+    
+    @ObservedObject var observed = GlobalData()
+
     var body: some Scene {
         WindowGroup {
-            Analytics()
+            TabBar().environmentObject(observed)
         }
     }
+    
 }
+
 
 struct BankingUIApp_Previews: PreviewProvider {
     static var previews: some View {
-        Text("Hello, World!")
+        TabBar()
     }
 }

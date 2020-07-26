@@ -20,6 +20,8 @@ struct AccountDetail: View {
 
 struct AccountDetail_Previews: PreviewProvider {
     static var previews: some View {
-        AccountDetail(account: Account(id: 1, type: "BANK", desc: "VISA", totalValue: 78))
+        NavigationView{
+            AccountDetail(account: Account(id: 1, type: "BANK", desc: "VISA", totalValue: 78))
+        }
     }
 }

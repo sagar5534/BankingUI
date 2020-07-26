@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct AccountList: View {
+    
+    @EnvironmentObject var data: GlobalData
+
     @State var isEditMode: EditMode = .inactive
     @State var showingDetail = false
-    @State var accounts: AccountCollection
 
     var body: some View {
         List {
@@ -20,7 +22,7 @@ struct AccountList: View {
                 }.sheet(isPresented: $showingDetail) {
                     DetailView()
                 }
-            ForEach(accounts, id: \.self) { account in
+            ForEach(data.accounts, id: \.self) { account in
 
                 NavigationLink(destination: AccountDetail(account: account)) {
                     AccountRow(account: account)
@@ -37,19 +39,20 @@ struct AccountList: View {
     }
 
     func delete(at offsets: IndexSet) {
-        accounts.remove(atOffsets: offsets)
+        data.deleteAccount(id: offsets.first!)
+        data.accounts.remove(atOffsets: offsets)
     }
 }
 
 struct AccountList_Previews: PreviewProvider {
     static var previews: some View {
-        let accounts: AccountCollection = [
-            Account(id: 1, type: "BANK", desc: "RBC Debit", totalValue: 899),
-            Account(id: 2, type: "CASH", desc: "My Cash", totalValue: 40),
-            Account(id: 3, type: "CREDIT", desc: "VISA", totalValue: -430),
-        ]
+        let observed = GlobalData()
 
-        AccountList(accounts: accounts)
+        NavigationView{
+            AccountList()
+                .environmentObject(observed)
+        }
+        
     }
 }
 

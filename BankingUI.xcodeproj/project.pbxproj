@@ -24,6 +24,8 @@
 		1B3365FB24CA1C5400028BBC /* AddRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3365FA24CA1C5400028BBC /* AddRow.swift */; };
 		1B3365FE24CA1E4600028BBC /* TransactionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3365FD24CA1E4600028BBC /* TransactionList.swift */; };
 		1BD90F0424CAA2EB0049758D /* AddTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD90F0324CAA2EB0049758D /* AddTag.swift */; };
+		1BD90F0824CD27B00049758D /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD90F0724CD27B00049758D /* TabBar.swift */; };
+		1BD90F0A24CD39FE0049758D /* GlobalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD90F0924CD39FE0049758D /* GlobalData.swift */; };
 		4BCC8626EA0C7254221C2B55 /* Pods_BankingUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8AB9F98E639636CB577A3C1 /* Pods_BankingUI.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +49,8 @@
 		1B3365FA24CA1C5400028BBC /* AddRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRow.swift; sourceTree = "<group>"; };
 		1B3365FD24CA1E4600028BBC /* TransactionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionList.swift; sourceTree = "<group>"; };
 		1BD90F0324CAA2EB0049758D /* AddTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTag.swift; sourceTree = "<group>"; };
+		1BD90F0724CD27B00049758D /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
+		1BD90F0924CD39FE0049758D /* GlobalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalData.swift; sourceTree = "<group>"; };
 		47B0D26E0279522B61C9C7CC /* Pods-BankingUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BankingUI.release.xcconfig"; path = "Target Support Files/Pods-BankingUI/Pods-BankingUI.release.xcconfig"; sourceTree = "<group>"; };
 		7CDAE02570CCC1468E8F4A19 /* Pods-BankingUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BankingUI.debug.xcconfig"; path = "Target Support Files/Pods-BankingUI/Pods-BankingUI.debug.xcconfig"; sourceTree = "<group>"; };
 		F8AB9F98E639636CB577A3C1 /* Pods_BankingUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BankingUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -116,6 +120,7 @@
 				1B3365FC24CA1CA600028BBC /* Models & Extensions */,
 				1B3365F224CA0C7D00028BBC /* Analytics */,
 				1B3365DF24C9511200028BBC /* BankingUIApp.swift */,
+				1BD90F0724CD27B00049758D /* TabBar.swift */,
 				1B3365E324C9511400028BBC /* Assets.xcassets */,
 				1B3365E824C9511400028BBC /* Info.plist */,
 				1B3365E524C9511400028BBC /* Preview Content */,
@@ -159,6 +164,7 @@
 			children = (
 				1B3365EE24CA046300028BBC /* Models.swift */,
 				1B3365F024CA076F00028BBC /* Extentions.swift */,
+				1BD90F0924CD39FE0049758D /* GlobalData.swift */,
 			);
 			path = "Models & Extensions";
 			sourceTree = "<group>";
@@ -296,9 +302,11 @@
 				1B07E0E124CA34A9000D9AD8 /* TagList.swift in Sources */,
 				1B3365FB24CA1C5400028BBC /* AddRow.swift in Sources */,
 				1B3365FE24CA1E4600028BBC /* TransactionList.swift in Sources */,
+				1BD90F0824CD27B00049758D /* TabBar.swift in Sources */,
 				1B07E0E324CA34B4000D9AD8 /* TagDetail.swift in Sources */,
 				1B3365F124CA076F00028BBC /* Extentions.swift in Sources */,
 				1B3365EF24CA046300028BBC /* Models.swift in Sources */,
+				1BD90F0A24CD39FE0049758D /* GlobalData.swift in Sources */,
 				1B3365F724CA0D4D00028BBC /* TransactionRow.swift in Sources */,
 				1B07E0DC24CA3162000D9AD8 /* AccountList.swift in Sources */,
 				1B07E0E524CA51FB000D9AD8 /* Analytics.swift in Sources */,
