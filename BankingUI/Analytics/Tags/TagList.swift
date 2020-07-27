@@ -37,7 +37,7 @@ struct TagList: View {
         .navigationViewStyle(DefaultNavigationViewStyle())
         .environment(\.editMode, self.$isEditMode)
         .sheet(isPresented: $showingDetail) {
-            AddTagName(showingDetail: $showingDetail).environmentObject(newTag).environmentObject(data)
+            TagName(showingDetail: $showingDetail).environmentObject(newTag).environmentObject(data)
         }
     }
 

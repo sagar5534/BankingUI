@@ -1,79 +1,14 @@
 //
-//  AddTag.swift
+//  TagColor.swift
 //  BankingUI
 //
-//  Created by Sagar Patel on 2020-07-24.
+//  Created by Sagar Patel on 2020-07-26.
 //
 
 import SwiftUI
 import Alamofire
 
-
-class NewTagData: ObservableObject {
-    @Published var name = ""
-    @Published var color = ""
-}
-struct Index {
-    var row: Int
-    var col: Int
-}
-
-
-struct AddTagName: View {
-    
-    @Binding var showingDetail: Bool
-
-    @State private var showingAlert = false
-    @State private var TagData = NewTagData()
-    @State private var text: String = ""
-
-    var body: some View {
-        NavigationView {
-            VStack(spacing: 10) {
-                HStack {
-                    Text("Name your new Tag")
-                        .bold()
-                        .fontWeight(.heavy)
-                        .foregroundColor(.secondary)
-                        .font(.system(size: 24))
-                        .frame(height: 0, alignment: .leading)
-                        .padding(.top, 5)
-                    Spacer()
-                }
-
-                Divider()
-                    .padding(.top, 20)
-                
-                TextField( "type something...", text: $text)
-                    .textFieldStyle(PlainTextFieldStyle())
-                    .multilineTextAlignment(.leading)
-                    .font(.system(size: CGFloat(50), weight: Font.Weight.medium))
-                    .onChange(of: text) { value in
-                        TagData.name = value
-                        print(value)
-                    }
-                    
-                Spacer()
-            }
-            .padding(.leading, 20)
-            .navigationTitle("Create a Tag")
-            .navigationBarItems(
-                leading: Button("Cancel") {
-                    self.showingDetail.toggle()
-                }, trailing: NavigationLink(
-                    destination: AddTagColor(showingDetail: $showingDetail).environmentObject(TagData),
-                    label: {
-                        Text("Next")
-                    }
-                ).disabled(text.isEmpty)
-            )
-            
-        }
-
-    }
-}
-
-struct AddTagColor: View {
+struct TagColor: View {
 
     @EnvironmentObject var observed: GlobalData
     @EnvironmentObject var TagData: NewTagData
@@ -185,16 +120,13 @@ struct AddTagColor: View {
     
 }
 
-struct AddTag_Previews: PreviewProvider {
+struct TagColor_Previews: PreviewProvider {
     static var previews: some View {
-        
         let data = NewTagData()
 
-        Group {
-            AddTagName(showingDetail: .constant(true)).environmentObject(data)
-            NavigationView {
-                AddTagColor(showingDetail: .constant(true)).environmentObject(data)
-            }
+        NavigationView {
+            TagColor(showingDetail: .constant(true)).environmentObject(data)
         }
+        
     }
 }

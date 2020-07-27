@@ -20,7 +20,7 @@ struct AccountList: View {
                 .onTapGesture {
                     self.showingDetail.toggle()
                 }.sheet(isPresented: $showingDetail) {
-                    DetailView()
+                    AccountName(showingDetail: $showingDetail)
                 }
             ForEach(data.accounts, id: \.self) { account in
 
