@@ -9,7 +9,6 @@ import SwiftUI
 
 @main
 struct BankingUIApp: App {
-    
     @ObservedObject var observed = GlobalData()
 
     var body: some Scene {
@@ -17,9 +16,7 @@ struct BankingUIApp: App {
             TabBar().environmentObject(observed)
         }
     }
-    
 }
-
 
 struct BankingUIApp_Previews: PreviewProvider {
     static var previews: some View {

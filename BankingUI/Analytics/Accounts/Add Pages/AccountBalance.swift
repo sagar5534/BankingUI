@@ -5,11 +5,10 @@
 //  Created by Sagar Patel on 2020-07-26.
 //
 
-import SwiftUI
 import Combine
+import SwiftUI
 
 struct AccountBalance: View {
-    
     @Binding var showingDetail: Bool
     @EnvironmentObject var AccountData: NewAccountData
 
@@ -17,29 +16,31 @@ struct AccountBalance: View {
     @State private var selected = 0
 
     var options = ["Expense", "Income"]
-    
+
     var body: some View {
-                    
         Currency(title: "Enter current balance", options: options, value: $value, selected: $selected)
-            
-        .navigationTitle("Create a Account")
-        .navigationBarItems(
-            trailing: NavigationLink(
-                destination: AccountSummary(),
-                label: {
-                    Text("Next")
-                }
+
+            .navigationTitle("Create a Account")
+            .navigationBarItems(
+                trailing: NavigationLink(
+                    destination: AccountSummary(showingDetail: $showingDetail).environmentObject(AccountData),
+                    label: {
+                        Text("Next")
+                    }
+                )
             )
-        )
-        
+            .onChange(of: value!) { val in
+                AccountData.amount = val
+            }
     }
-    
 }
 
 struct AccountBalance_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView{
-            AccountBalance(showingDetail: .constant(true))
+        let AccountData: NewAccountData = NewAccountData()
+
+        NavigationView {
+            AccountBalance(showingDetail: .constant(true)).environmentObject(AccountData)
         }
     }
 }

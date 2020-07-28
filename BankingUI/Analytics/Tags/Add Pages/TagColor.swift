@@ -5,14 +5,13 @@
 //  Created by Sagar Patel on 2020-07-26.
 //
 
-import SwiftUI
 import Alamofire
+import SwiftUI
 
 struct TagColor: View {
-
     @EnvironmentObject var observed: GlobalData
     @EnvironmentObject var TagData: NewTagData
-    
+
     @Binding var showingDetail: Bool
     @State private var showingAlert = false
     @State private var selected: Index = Index(row: 0, col: 0)
@@ -70,7 +69,7 @@ struct TagColor: View {
                     }
                 }
             }.padding()
-            
+
             Spacer()
         }
         .padding(.leading, 20)
@@ -92,12 +91,13 @@ struct TagColor: View {
                 primaryButton: .default(Text("Try Again"), action: {
                     createCall(name: TagData.name, color: TagData.color)
                 }),
-                secondaryButton: .cancel({
+                secondaryButton: .cancel {
                     self.showingDetail.toggle()
-                }))
+                }
+            )
         }
     }
-    
+
     func createCall(name: String, color: String) {
         let url = "http://lunar.local:4000/" + "create/tag"
         let parameter = [
@@ -105,19 +105,18 @@ struct TagColor: View {
             "name": name,
             "color": color,
         ] as [String: Any]
-        
+
         AF.request(url, method: .post, parameters: parameter, encoding: JSONEncoding.default).responseDecodable(of: Tag.self) { response in
 
             switch response.result {
             case let .success(data):
                 observed.tags.append(data)
                 self.showingDetail.toggle()
-            case let .failure(err):
+            case let .failure:
                 showingAlert.toggle()
             }
         }
     }
-    
 }
 
 struct TagColor_Previews: PreviewProvider {
@@ -127,6 +126,5 @@ struct TagColor_Previews: PreviewProvider {
         NavigationView {
             TagColor(showingDetail: .constant(true)).environmentObject(data)
         }
-        
     }
 }

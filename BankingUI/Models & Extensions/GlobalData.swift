@@ -5,13 +5,12 @@
 //  Created by Sagar Patel on 2020-07-26.
 //
 
-import Foundation
 import Alamofire
+import Foundation
 
 class GlobalData: ObservableObject {
-    
     let host = "http://lunar.local:4000/"
-    
+
     @Published var tags = TagCollection()
     @Published var accounts = AccountCollection()
     @Published var transactions = TransactionCollection()
@@ -22,7 +21,7 @@ class GlobalData: ObservableObject {
         getAccounts()
         getTransactions()
     }
-    
+
     func getTags() {
         let parameter = ["user": 1]
         let url = host + "get/tags"
@@ -80,7 +79,7 @@ class GlobalData: ObservableObject {
             }
         }
     }
-    
+
     func deleteTag(id: Int) {
         let parameter = ["tagID": tags[id].id]
         let url = host + "delete/tag"

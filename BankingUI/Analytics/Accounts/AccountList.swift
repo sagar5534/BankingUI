@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct AccountList: View {
-    
     @EnvironmentObject var data: GlobalData
 
     @State var isEditMode: EditMode = .inactive
@@ -20,7 +19,7 @@ struct AccountList: View {
                 .onTapGesture {
                     self.showingDetail.toggle()
                 }.sheet(isPresented: $showingDetail) {
-                    AccountName(showingDetail: $showingDetail)
+                    AccountName(showingDetail: $showingDetail).environmentObject(data)
                 }
             ForEach(data.accounts, id: \.self) { account in
 
@@ -48,16 +47,9 @@ struct AccountList_Previews: PreviewProvider {
     static var previews: some View {
         let observed = GlobalData()
 
-        NavigationView{
+        NavigationView {
             AccountList()
                 .environmentObject(observed)
         }
-        
-    }
-}
-
-struct DetailView: View {
-    var body: some View {
-        Text("Detail")
     }
 }

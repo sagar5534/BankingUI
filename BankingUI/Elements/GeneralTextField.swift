@@ -9,12 +9,10 @@ import Foundation
 import SwiftUI
 
 struct GeneralTextField: View {
-    
     @State var title: String
     @Binding var text: String
 
     var body: some View {
-        
         VStack(spacing: 10) {
             HStack {
                 Text(title)
@@ -26,18 +24,17 @@ struct GeneralTextField: View {
                     .padding(.top, 5)
                 Spacer()
             }
-            
+
             Divider()
                 .padding(.top, 20)
-            
-            TextField( "type something...", text: $text)
+
+            TextField("type something...", text: $text)
                 .textFieldStyle(PlainTextFieldStyle())
                 .multilineTextAlignment(.leading)
                 .font(.system(size: CGFloat(50), weight: Font.Weight.medium))
-            
+
             Spacer()
         }
         .padding(.leading, 20)
-        
     }
 }

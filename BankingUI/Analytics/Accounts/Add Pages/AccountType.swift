@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct AccountType: View {
-    
     @Binding var showingDetail: Bool
     @EnvironmentObject var AccountData: NewAccountData
     @State private var selected = 0
@@ -17,7 +16,6 @@ struct AccountType: View {
     var types = ["BANK", "CREDIT", "CASH"]
 
     var body: some View {
-        
         VStack(spacing: 10) {
             HStack {
                 Text("Select an account type")
@@ -29,45 +27,43 @@ struct AccountType: View {
                     .padding(.top, 5)
                 Spacer()
             }
-            
+
             Divider()
                 .padding(.top, 20)
                 .padding(.bottom, 10)
-            
+
             Picker(selection: $selected, label: Text("")) {
                 ForEach(0 ..< options.count) {
-                    Text(self.options[$0])
+                    Text(bankType[$0].name)
                 }
             }
-                .pickerStyle(SegmentedPickerStyle())
-                .padding(.trailing, 20)
-                .onChange(of: selected) { value in
-                    AccountData.type = types[value]
-                }
-            
+            .pickerStyle(SegmentedPickerStyle())
+            .padding(.trailing, 20)
+            .onChange(of: selected) { value in
+                AccountData.type = bankType[value]
+            }
+
             Spacer()
         }
         .padding(.leading, 20)
-        
+
         .navigationTitle("Create a Account")
         .navigationBarItems(
             trailing: NavigationLink(
-                destination: AccountBalance(showingDetail: $showingDetail),
+                destination: AccountBalance(showingDetail: $showingDetail).environmentObject(AccountData),
                 label: {
                     Text("Next")
                 }
             )
         )
-        
     }
 }
 
 struct AccountType_Previews: PreviewProvider {
     static var previews: some View {
-        
         let AccountData: NewAccountData = NewAccountData()
 
-        NavigationView{
+        NavigationView {
             AccountType(showingDetail: .constant(true)).environmentObject(AccountData)
         }
     }

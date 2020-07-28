@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct TagList: View {
-    
     @EnvironmentObject var data: GlobalData
 
     @State var isEditMode: EditMode = .inactive
@@ -49,13 +48,11 @@ struct TagList: View {
 
 struct TagList_Previews: PreviewProvider {
     static var previews: some View {
-        
         let observed = GlobalData()
-        
-        NavigationView{
+
+        NavigationView {
             TagList()
                 .environmentObject(observed)
         }
-        
     }
 }

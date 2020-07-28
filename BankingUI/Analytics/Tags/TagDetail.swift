@@ -20,7 +20,7 @@ struct TagDetail: View {
 
 struct TagDetail_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView{
+        NavigationView {
             TagDetail(tag: Tag(id: 1, name: "Shopping", color: ""))
         }
     }

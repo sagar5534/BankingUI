@@ -9,9 +9,7 @@ import Alamofire
 import SwiftUI
 
 struct Analytics: View {
-    
-    @EnvironmentObject var observed: GlobalData
-    
+
     var body: some View {
         NavigationView {
             VStack {
@@ -69,4 +67,3 @@ struct Analytics_Previews: PreviewProvider {
             .environmentObject(observed)
     }
 }
-

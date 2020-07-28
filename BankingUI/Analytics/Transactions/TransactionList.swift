@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct TransactionList: View {
-    
     @EnvironmentObject var data: GlobalData
 
     @State var isEditMode: EditMode = .inactive
@@ -22,7 +21,6 @@ struct TransactionList: View {
                 NavigationLink(destination: TransactionDetail(transaction: tran)) {
                     TransactionRow(transaction: tran, account: acc)
                 }
-                
             }
             .onDelete(perform: delete)
         }
@@ -43,11 +41,10 @@ struct TransactionList: View {
 struct TransactionList_Previews: PreviewProvider {
     static var previews: some View {
         let observed = GlobalData()
-        
-        NavigationView{
+
+        NavigationView {
             TransactionList()
                 .environmentObject(observed)
         }
-        
     }
 }

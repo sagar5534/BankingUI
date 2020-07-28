@@ -23,6 +23,8 @@
 		1B3365F924CA1B9900028BBC /* AccountRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3365F824CA1B9900028BBC /* AccountRow.swift */; };
 		1B3365FB24CA1C5400028BBC /* AddRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3365FA24CA1C5400028BBC /* AddRow.swift */; };
 		1B3365FE24CA1E4600028BBC /* TransactionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3365FD24CA1E4600028BBC /* TransactionList.swift */; };
+		1B888E7924CFC0BB000B3365 /* Overview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B888E7824CFC0BB000B3365 /* Overview.swift */; };
+		1B888E7B24CFE7EA000B3365 /* AccountsOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B888E7A24CFE7EA000B3365 /* AccountsOverview.swift */; };
 		1BC9B59A24CE8FE400CAEB78 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC9B59924CE8FE400CAEB78 /* Currency.swift */; };
 		1BC9B59B24CE940E00CAEB78 /* CurrencyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD90F1B24CE77700049758D /* CurrencyTextField.swift */; };
 		1BD90F0424CAA2EB0049758D /* TagName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD90F0324CAA2EB0049758D /* TagName.swift */; };
@@ -56,6 +58,8 @@
 		1B3365F824CA1B9900028BBC /* AccountRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRow.swift; sourceTree = "<group>"; };
 		1B3365FA24CA1C5400028BBC /* AddRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRow.swift; sourceTree = "<group>"; };
 		1B3365FD24CA1E4600028BBC /* TransactionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionList.swift; sourceTree = "<group>"; };
+		1B888E7824CFC0BB000B3365 /* Overview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Overview.swift; sourceTree = "<group>"; };
+		1B888E7A24CFE7EA000B3365 /* AccountsOverview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsOverview.swift; sourceTree = "<group>"; };
 		1BC9B59924CE8FE400CAEB78 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		1BD90F0324CAA2EB0049758D /* TagName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagName.swift; sourceTree = "<group>"; };
 		1BD90F0724CD27B00049758D /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
@@ -134,7 +138,9 @@
 		1B3365DE24C9511200028BBC /* BankingUI */ = {
 			isa = PBXGroup;
 			children = (
+				1B888E7624CFC010000B3365 /* Elements */,
 				1B3365FC24CA1CA600028BBC /* Models & Extensions */,
+				1B888E7724CFC0A1000B3365 /* Overview */,
 				1B3365F224CA0C7D00028BBC /* Analytics */,
 				1B3365DF24C9511200028BBC /* BankingUIApp.swift */,
 				1BD90F0724CD27B00049758D /* TabBar.swift */,
@@ -161,9 +167,6 @@
 				1B07E0DA24CA314F000D9AD8 /* Accounts */,
 				1B07E0D924CA3137000D9AD8 /* Transactions */,
 				1B3365F324CA0C8700028BBC /* Rows */,
-				1BD90F1B24CE77700049758D /* CurrencyTextField.swift */,
-				1BD90F0C24CDFA720049758D /* GeneralTextField.swift */,
-				1BC9B59924CE8FE400CAEB78 /* Currency.swift */,
 			);
 			path = Analytics;
 			sourceTree = "<group>";
@@ -187,6 +190,25 @@
 				1BD90F0924CD39FE0049758D /* GlobalData.swift */,
 			);
 			path = "Models & Extensions";
+			sourceTree = "<group>";
+		};
+		1B888E7624CFC010000B3365 /* Elements */ = {
+			isa = PBXGroup;
+			children = (
+				1BD90F1B24CE77700049758D /* CurrencyTextField.swift */,
+				1BD90F0C24CDFA720049758D /* GeneralTextField.swift */,
+				1BC9B59924CE8FE400CAEB78 /* Currency.swift */,
+			);
+			path = Elements;
+			sourceTree = "<group>";
+		};
+		1B888E7724CFC0A1000B3365 /* Overview */ = {
+			isa = PBXGroup;
+			children = (
+				1B888E7824CFC0BB000B3365 /* Overview.swift */,
+				1B888E7A24CFE7EA000B3365 /* AccountsOverview.swift */,
+			);
+			path = Overview;
 			sourceTree = "<group>";
 		};
 		1BD90F0B24CDF1260049758D /* Add Pages */ = {
@@ -345,10 +367,12 @@
 				1B3365FB24CA1C5400028BBC /* AddRow.swift in Sources */,
 				1B3365FE24CA1E4600028BBC /* TransactionList.swift in Sources */,
 				1BD90F1424CE057C0049758D /* TagColor.swift in Sources */,
+				1B888E7924CFC0BB000B3365 /* Overview.swift in Sources */,
 				1BD90F0824CD27B00049758D /* TabBar.swift in Sources */,
 				1BC9B59A24CE8FE400CAEB78 /* Currency.swift in Sources */,
 				1BD90F0F24CDFE690049758D /* AccountName.swift in Sources */,
 				1B07E0E324CA34B4000D9AD8 /* TagDetail.swift in Sources */,
+				1B888E7B24CFE7EA000B3365 /* AccountsOverview.swift in Sources */,
 				1BD90F1A24CE74720049758D /* AccountSummary.swift in Sources */,
 				1B3365F124CA076F00028BBC /* Extentions.swift in Sources */,
 				1B3365EF24CA046300028BBC /* Models.swift in Sources */,
