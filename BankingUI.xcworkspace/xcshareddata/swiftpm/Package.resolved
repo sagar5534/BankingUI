@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "SwiftUICharts",
+        "repositoryURL": "https://github.com/sagar5534/ChartView",
+        "state": {
+          "branch": "master",
+          "revision": "6c612fae1865994effc481d5bcaa7177acd47469",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}

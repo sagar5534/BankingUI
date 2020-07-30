@@ -11,10 +11,17 @@ struct TransactionList: View {
     @EnvironmentObject var data: GlobalData
 
     @State var isEditMode: EditMode = .inactive
+    @State var showingDetail = false
 
     var body: some View {
         List {
             AddRow(name: "Add a Transaction")
+                .onTapGesture {
+                    self.showingDetail.toggle()
+                }.sheet(isPresented: $showingDetail) {
+                    TransAmount(showingDetail: $showingDetail).environmentObject(data)
+                }
+
             ForEach(data.transactions, id: \.self) { tran in
 
                 let acc = data.accounts.getAccount(accountId: tran.accountID!)

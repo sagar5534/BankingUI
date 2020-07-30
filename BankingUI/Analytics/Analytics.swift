@@ -9,7 +9,6 @@ import Alamofire
 import SwiftUI
 
 struct Analytics: View {
-
     var body: some View {
         NavigationView {
             VStack {

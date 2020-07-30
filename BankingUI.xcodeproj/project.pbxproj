@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -25,6 +25,13 @@
 		1B3365FE24CA1E4600028BBC /* TransactionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3365FD24CA1E4600028BBC /* TransactionList.swift */; };
 		1B888E7924CFC0BB000B3365 /* Overview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B888E7824CFC0BB000B3365 /* Overview.swift */; };
 		1B888E7B24CFE7EA000B3365 /* AccountsOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B888E7A24CFE7EA000B3365 /* AccountsOverview.swift */; };
+		1BB1431B24D07D8700A7C0B1 /* TransAmount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB1431A24D07D8700A7C0B1 /* TransAmount.swift */; };
+		1BB1431F24D083BF00A7C0B1 /* TransMerchant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB1431E24D083BF00A7C0B1 /* TransMerchant.swift */; };
+		1BB1432124D0848900A7C0B1 /* TransDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB1432024D0848900A7C0B1 /* TransDate.swift */; };
+		1BB1432324D0881200A7C0B1 /* TransAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB1432224D0881200A7C0B1 /* TransAccount.swift */; };
+		1BB1432524D0F26300A7C0B1 /* TransSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB1432424D0F26300A7C0B1 /* TransSummary.swift */; };
+		1BB1433224D1437700A7C0B1 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 1BB1433124D1437700A7C0B1 /* SwiftUICharts */; };
+		1BB1433524D1C8B600A7C0B1 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB1433424D1C8B600A7C0B1 /* Card.swift */; };
 		1BC9B59A24CE8FE400CAEB78 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC9B59924CE8FE400CAEB78 /* Currency.swift */; };
 		1BC9B59B24CE940E00CAEB78 /* CurrencyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD90F1B24CE77700049758D /* CurrencyTextField.swift */; };
 		1BD90F0424CAA2EB0049758D /* TagName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD90F0324CAA2EB0049758D /* TagName.swift */; };
@@ -60,6 +67,14 @@
 		1B3365FD24CA1E4600028BBC /* TransactionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionList.swift; sourceTree = "<group>"; };
 		1B888E7824CFC0BB000B3365 /* Overview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Overview.swift; sourceTree = "<group>"; };
 		1B888E7A24CFE7EA000B3365 /* AccountsOverview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsOverview.swift; sourceTree = "<group>"; };
+		1BAD3C3A24D2182300482FB4 /* ChartView */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ChartView; path = "../../../../../../Macintosh HD/Users/sagar/Documents/ChartView"; sourceTree = "<group>"; };
+		1BB1431A24D07D8700A7C0B1 /* TransAmount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransAmount.swift; sourceTree = "<group>"; };
+		1BB1431E24D083BF00A7C0B1 /* TransMerchant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransMerchant.swift; sourceTree = "<group>"; };
+		1BB1432024D0848900A7C0B1 /* TransDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransDate.swift; sourceTree = "<group>"; };
+		1BB1432224D0881200A7C0B1 /* TransAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransAccount.swift; sourceTree = "<group>"; };
+		1BB1432424D0F26300A7C0B1 /* TransSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransSummary.swift; sourceTree = "<group>"; };
+		1BB1432D24D1424600A7C0B1 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Package.swift; path = ChartView/Package.swift; sourceTree = "<group>"; };
+		1BB1433424D1C8B600A7C0B1 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		1BC9B59924CE8FE400CAEB78 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		1BD90F0324CAA2EB0049758D /* TagName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagName.swift; sourceTree = "<group>"; };
 		1BD90F0724CD27B00049758D /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
@@ -82,6 +97,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4BCC8626EA0C7254221C2B55 /* Pods_BankingUI.framework in Frameworks */,
+				1BB1433224D1437700A7C0B1 /* SwiftUICharts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,6 +109,7 @@
 			children = (
 				1B3365FD24CA1E4600028BBC /* TransactionList.swift */,
 				1B07E0D724CA2EB3000D9AD8 /* TransactionDetail.swift */,
+				1BB1431924D07B4B00A7C0B1 /* Add Pages */,
 			);
 			path = Transactions;
 			sourceTree = "<group>";
@@ -120,6 +137,7 @@
 		1B3365D324C9511200028BBC = {
 			isa = PBXGroup;
 			children = (
+				1BAD3C3A24D2182300482FB4 /* ChartView */,
 				1B3365DE24C9511200028BBC /* BankingUI */,
 				1B3365DD24C9511200028BBC /* Products */,
 				C4ABCDA92AD497BF9B7155D4 /* Pods */,
@@ -198,6 +216,7 @@
 				1BD90F1B24CE77700049758D /* CurrencyTextField.swift */,
 				1BD90F0C24CDFA720049758D /* GeneralTextField.swift */,
 				1BC9B59924CE8FE400CAEB78 /* Currency.swift */,
+				1BB1433424D1C8B600A7C0B1 /* Card.swift */,
 			);
 			path = Elements;
 			sourceTree = "<group>";
@@ -209,6 +228,18 @@
 				1B888E7A24CFE7EA000B3365 /* AccountsOverview.swift */,
 			);
 			path = Overview;
+			sourceTree = "<group>";
+		};
+		1BB1431924D07B4B00A7C0B1 /* Add Pages */ = {
+			isa = PBXGroup;
+			children = (
+				1BB1431A24D07D8700A7C0B1 /* TransAmount.swift */,
+				1BB1431E24D083BF00A7C0B1 /* TransMerchant.swift */,
+				1BB1432024D0848900A7C0B1 /* TransDate.swift */,
+				1BB1432224D0881200A7C0B1 /* TransAccount.swift */,
+				1BB1432424D0F26300A7C0B1 /* TransSummary.swift */,
+			);
+			path = "Add Pages";
 			sourceTree = "<group>";
 		};
 		1BD90F0B24CDF1260049758D /* Add Pages */ = {
@@ -234,6 +265,7 @@
 		66083A01BDFA3804A3CB0577 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1BB1432D24D1424600A7C0B1 /* Package.swift */,
 				F8AB9F98E639636CB577A3C1 /* Pods_BankingUI.framework */,
 			);
 			name = Frameworks;
@@ -266,6 +298,9 @@
 			dependencies = (
 			);
 			name = BankingUI;
+			packageProductDependencies = (
+				1BB1433124D1437700A7C0B1 /* SwiftUICharts */,
+			);
 			productName = BankingUI;
 			productReference = 1B3365DC24C9511200028BBC /* BankingUI.app */;
 			productType = "com.apple.product-type.application";
@@ -293,6 +328,9 @@
 				Base,
 			);
 			mainGroup = 1B3365D324C9511200028BBC;
+			packageReferences = (
+				1BB1433024D1437700A7C0B1 /* XCRemoteSwiftPackageReference "ChartView" */,
+			);
 			productRefGroup = 1B3365DD24C9511200028BBC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -363,20 +401,26 @@
 			files = (
 				1BC9B59B24CE940E00CAEB78 /* CurrencyTextField.swift in Sources */,
 				1B07E0E124CA34A9000D9AD8 /* TagList.swift in Sources */,
+				1BB1431F24D083BF00A7C0B1 /* TransMerchant.swift in Sources */,
+				1BB1432524D0F26300A7C0B1 /* TransSummary.swift in Sources */,
 				1BD90F1824CE722E0049758D /* AccountBalance.swift in Sources */,
 				1B3365FB24CA1C5400028BBC /* AddRow.swift in Sources */,
 				1B3365FE24CA1E4600028BBC /* TransactionList.swift in Sources */,
 				1BD90F1424CE057C0049758D /* TagColor.swift in Sources */,
 				1B888E7924CFC0BB000B3365 /* Overview.swift in Sources */,
 				1BD90F0824CD27B00049758D /* TabBar.swift in Sources */,
+				1BB1433524D1C8B600A7C0B1 /* Card.swift in Sources */,
 				1BC9B59A24CE8FE400CAEB78 /* Currency.swift in Sources */,
 				1BD90F0F24CDFE690049758D /* AccountName.swift in Sources */,
 				1B07E0E324CA34B4000D9AD8 /* TagDetail.swift in Sources */,
 				1B888E7B24CFE7EA000B3365 /* AccountsOverview.swift in Sources */,
 				1BD90F1A24CE74720049758D /* AccountSummary.swift in Sources */,
 				1B3365F124CA076F00028BBC /* Extentions.swift in Sources */,
+				1BB1432324D0881200A7C0B1 /* TransAccount.swift in Sources */,
 				1B3365EF24CA046300028BBC /* Models.swift in Sources */,
 				1BD90F0A24CD39FE0049758D /* GlobalData.swift in Sources */,
+				1BB1431B24D07D8700A7C0B1 /* TransAmount.swift in Sources */,
+				1BB1432124D0848900A7C0B1 /* TransDate.swift in Sources */,
 				1B3365F724CA0D4D00028BBC /* TransactionRow.swift in Sources */,
 				1BD90F0D24CDFA720049758D /* GeneralTextField.swift in Sources */,
 				1B07E0DC24CA3162000D9AD8 /* AccountList.swift in Sources */,
@@ -578,6 +622,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1BB1433024D1437700A7C0B1 /* XCRemoteSwiftPackageReference "ChartView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sagar5534/ChartView";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1BB1433124D1437700A7C0B1 /* SwiftUICharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1BB1433024D1437700A7C0B1 /* XCRemoteSwiftPackageReference "ChartView" */;
+			productName = SwiftUICharts;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1B3365D424C9511200028BBC /* Project object */;
 }

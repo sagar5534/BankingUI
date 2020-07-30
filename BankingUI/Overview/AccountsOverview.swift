@@ -8,41 +8,22 @@
 import SwiftUI
 
 struct AccountsOverview: View {
-    
     var colorScheme: ColorScheme
     @EnvironmentObject var data: GlobalData
     @State private var totals: [Double] = []
-    
-    
+
     var accountsTotals: [Double] {
-        
         var total: [Double] = []
-        for number in bankType{
+        for number in bankType {
             let filteredAccount = data.accounts.filter { $0.type == number.type }
             let totalAccount = filteredAccount.reduce(0) { $0 + $1.totalValue! }
             total.append(totalAccount)
         }
         return total
-
     }
-    
+
     var body: some View {
-        
-        List {
-            HStack {
-                Text("Accounts")
-                    .bold()
-                    .font(.title2)
-
-                Spacer()
-
-                Button(action: {}, label: {
-                    Image(systemName: "plus").resizable()
-                        .foregroundColor(.blue)
-                        .frame(width: 25, height: 25)
-                })
-            }.padding()
-            
+        VStack {
             HStack {
                 Image(colorScheme == .light ? "chart-black" : "chart-white")
                     .frame(width: 35, height: 35)
@@ -59,9 +40,8 @@ struct AccountsOverview: View {
             }.padding()
 
             ForEach(0 ..< accountsTotals.count) { number in
-            
+
                 HStack {
-                    
                     Image(getImage(type: bankType[number].type))
                         .frame(width: 35, height: 35)
                         .padding(.trailing, 15)
@@ -75,19 +55,16 @@ struct AccountsOverview: View {
                         .padding(.leading, 10)
                 }
                 .padding()
-            
             }
-            
         }
-        
     }
-    
+
     func getImage(type: String) -> String {
         var string = ""
-        
+
         switch type {
         case "BANK":
-           string = colorScheme == .light ? "bank-black" : "bank-white"
+            string = colorScheme == .light ? "bank-black" : "bank-white"
         case "CREDIT":
             string = colorScheme == .light ? "card-black" : "card-white"
         case "CASH":
@@ -95,23 +72,23 @@ struct AccountsOverview: View {
         default:
             string = colorScheme == .light ? "piggy-black" : "piggy-white"
         }
-        
+
         return string
     }
-    
+
     func getNet() -> Double {
         var total = 0.0
-        for i in accountsTotals{
+        for i in accountsTotals {
             total = total + i
         }
         return total
     }
-    
 }
 
 struct AccountsOverview_Previews: PreviewProvider {
     static var previews: some View {
-        
-        Text("")
+        let data = GlobalData()
+        AccountsOverview(colorScheme: .light)
+            .environmentObject(data)
     }
 }
