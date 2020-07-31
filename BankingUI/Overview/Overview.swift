@@ -12,8 +12,8 @@ struct OverviewPage: View {
     @Environment(\.colorScheme) var colorScheme: ColorScheme
     @EnvironmentObject var data: GlobalData
     @State var chartData: [Double] = [4, 5, 6, 2, 13, 4, 3, 6]
-    
-    var blueStlye = ChartStyle(backgroundColor: ColorGradient.orangeBright, foregroundColor: .prplPink )
+
+    var blueStlye = ChartStyle(backgroundColor: ColorGradient.orangeBright, foregroundColor: .orangeBright)
 
     let mixedColorStyle = ChartStyle(backgroundColor: Color(UIColor.secondarySystemGroupedBackground), foregroundColor: [
         ColorGradient(ChartColors.orangeBright, ChartColors.orangeDark),
@@ -58,9 +58,7 @@ struct OverviewPage: View {
 
                             AccountsOverview(colorScheme: colorScheme)
                                 .environmentObject(data)
-                                .padding(.leading, 10)
-                                .padding(.trailing, 10)
-                                .padding(.bottom, 10)
+                                .padding()
                         }
 
                         CardView(showShadow: colorScheme == .light) {
@@ -73,12 +71,10 @@ struct OverviewPage: View {
                             }
                             .padding(.top, 15)
                             .padding(.leading, 15)
-                            .padding(.bottom, 10)
 
                             Divider()
 
-                            BarChart()
-                                .padding()
+                            LineChart()
                         }
                         .data(chartData)
                         .chartStyle(blueStlye)
