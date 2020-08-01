@@ -67,7 +67,7 @@
 		1B3365FD24CA1E4600028BBC /* TransactionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionList.swift; sourceTree = "<group>"; };
 		1B888E7824CFC0BB000B3365 /* Overview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Overview.swift; sourceTree = "<group>"; };
 		1B888E7A24CFE7EA000B3365 /* AccountsOverview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsOverview.swift; sourceTree = "<group>"; };
-		1BAD3C3A24D2182300482FB4 /* ChartView */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ChartView; path = "../../../../../../Macintosh HD/Users/sagar/Documents/ChartView"; sourceTree = "<group>"; };
+		1B9B6AA424D3BEA30038D031 /* ChartView */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ChartView; path = "../../../../../../Macintosh HD/Users/sagar/Projects/ChartView"; sourceTree = "<group>"; };
 		1BB1431A24D07D8700A7C0B1 /* TransAmount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransAmount.swift; sourceTree = "<group>"; };
 		1BB1431E24D083BF00A7C0B1 /* TransMerchant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransMerchant.swift; sourceTree = "<group>"; };
 		1BB1432024D0848900A7C0B1 /* TransDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransDate.swift; sourceTree = "<group>"; };
@@ -137,7 +137,7 @@
 		1B3365D324C9511200028BBC = {
 			isa = PBXGroup;
 			children = (
-				1BAD3C3A24D2182300482FB4 /* ChartView */,
+				1B9B6AA424D3BEA30038D031 /* ChartView */,
 				1B3365DE24C9511200028BBC /* BankingUI */,
 				1B3365DD24C9511200028BBC /* Products */,
 				C4ABCDA92AD497BF9B7155D4 /* Pods */,

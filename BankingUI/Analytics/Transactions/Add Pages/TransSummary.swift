@@ -103,7 +103,7 @@ struct TransSummary: View {
 
             switch response.result {
             case let .success(trans):
-                data.transactions.append(trans)
+                data.transactions.add(new: trans)
                 self.showingDetail.toggle()
             case .failure:
                 showingAlert.toggle()

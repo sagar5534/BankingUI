@@ -70,6 +70,13 @@ extension AccountCollection {
         }
         return acc ?? Account(id: 1, type: "Error", desc: "Error", totalValue: 0)
     }
+    
+    func filterFor(type: BankType) -> [Account] {
+        return self.filter { $0.type == type.type }
+    }
+    
+    
+    
 }
 
 // MARK: - Transaction
@@ -109,13 +116,32 @@ struct Transaction: Codable, Identifiable, Hashable {
     func toDate() -> Date {
         return Date.formatter.date(from: date!)!
     }
-
+    
+    func toShortDate() -> Date {
+        return Date.shortformatter.date(from: date!)!
+    }
+    
     func toDateString() -> String {
         return toDate().formatted
     }
 }
 
 typealias TransactionCollection = [Transaction]
+
+extension TransactionCollection {
+    
+    func filterByAccount(id: Int) -> [Transaction] {
+        return self.filter { $0.accountID == id }
+    }
+    
+    mutating func add(new: Transaction) {
+        let z = self.insertionIndex { $0.toShortDate() > new.toShortDate() }
+        self.insert(new, at: z)
+    }
+    
+    
+}
+
 
 // MARK: - Overview
 

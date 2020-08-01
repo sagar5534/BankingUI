@@ -67,6 +67,28 @@ extension Date {
     var formatted: String {
         return Date.formatter.string(from: self)
     }
+    
+    func isEqual(to date: Date, toGranularity component: Calendar.Component, in calendar: Calendar = .current) -> Bool {
+            calendar.isDate(self, equalTo: date, toGranularity: component)
+        }
+
+    func isInSameYear(as date: Date) -> Bool { isEqual(to: date, toGranularity: .year) }
+    func isInSameMonth(as date: Date) -> Bool { isEqual(to: date, toGranularity: .month) }
+    func isInSameWeek(as date: Date) -> Bool { isEqual(to: date, toGranularity: .weekOfYear) }
+
+    func isInSameDay(as date: Date) -> Bool { Calendar.current.isDate(self, inSameDayAs: date) }
+
+    var isInThisYear:  Bool { isInSameYear(as: Date()) }
+    var isInThisMonth: Bool { isInSameMonth(as: Date()) }
+    var isInThisWeek:  Bool { isInSameWeek(as: Date()) }
+
+    var isInYesterday: Bool { Calendar.current.isDateInYesterday(self) }
+    var isInToday:     Bool { Calendar.current.isDateInToday(self) }
+    var isInTomorrow:  Bool { Calendar.current.isDateInTomorrow(self) }
+
+    var isInTheFuture: Bool { self > Date() }
+    var isInThePast:   Bool { self < Date() }
+    
 }
 
 extension UIColor {
@@ -100,5 +122,22 @@ extension UIColor {
             blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
             alpha: CGFloat(1.0)
         )
+    }
+}
+
+
+extension RandomAccessCollection { // the predicate version is not required to conform to Comparable
+    func insertionIndex(for predicate: (Element) -> Bool) -> Index {
+        var slice : SubSequence = self[...]
+
+        while !slice.isEmpty {
+            let middle = slice.index(slice.startIndex, offsetBy: slice.count / 2)
+            if predicate(slice[middle]) {
+                slice = slice[index(after: middle)...]
+            } else {
+                slice = slice[..<middle]
+            }
+        }
+        return slice.startIndex
     }
 }

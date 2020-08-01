@@ -11,14 +11,10 @@ import SwiftUICharts
 struct OverviewPage: View {
     @Environment(\.colorScheme) var colorScheme: ColorScheme
     @EnvironmentObject var data: GlobalData
+    
     @State var chartData: [Double] = [4, 5, 6, 2, 13, 4, 3, 6]
-
-    var blueStlye = ChartStyle(backgroundColor: ColorGradient.orangeBright, foregroundColor: .orangeBright)
-
-    let mixedColorStyle = ChartStyle(backgroundColor: Color(UIColor.secondarySystemGroupedBackground), foregroundColor: [
-        ColorGradient(ChartColors.orangeBright, ChartColors.orangeDark),
-        ColorGradient(.purple, .blue),
-    ])
+    
+    var blueStlye = ChartStyle(backgroundColor: ColorGradient.orangeBright, foregroundColor: .prplPink)
 
     var body: some View {
         NavigationView {
@@ -74,9 +70,9 @@ struct OverviewPage: View {
 
                             Divider()
 
-                            LineChart()
+                            BarChart()
                         }
-                        .data(chartData)
+                        .data(data.monthlySpendings)
                         .chartStyle(blueStlye)
                         .frame(height: 300)
 
@@ -87,16 +83,14 @@ struct OverviewPage: View {
             }
 
             .navigationTitle("Overview")
+            
         }
     }
 }
 
 struct OverviewPage_Previews: PreviewProvider {
     static var previews: some View {
-        var data = GlobalData()
-
-        var chartData: [Double] = [4, 5, 6, 2, 13, 4, 3, 6]
-        var blueStlye = ChartStyle(backgroundColor: ColorGradient.orangeBright, foregroundColor: .orangeBright)
+        let data = GlobalData()
 
         Group {
             OverviewPage()

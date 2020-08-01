@@ -13,7 +13,13 @@ class GlobalData: ObservableObject {
 
     @Published var tags = TagCollection()
     @Published var accounts = AccountCollection()
-    @Published var transactions = TransactionCollection()
+    @Published var transactions = TransactionCollection(){
+        didSet{
+            monthlySpendings = getMonthly()
+        }
+    }
+    
+    @Published var monthlySpendings = [Double]()
 
     init() {
         print("Network: Call Made")
@@ -22,6 +28,31 @@ class GlobalData: ObservableObject {
         getTransactions()
     }
 
+    
+    func getMonthly() -> [Double] {
+    
+        var total: [Double] = []
+        let creditAccounts = accounts.filterFor(type: bankType[1])
+        
+        var combinedTrans: TransactionCollection = []
+        for acc in creditAccounts {
+            combinedTrans += transactions.filterByAccount(id: acc.id!)
+        }
+              
+        for i in 1...7{
+            
+            let previousMonth = Calendar.current.date(byAdding: .month, value: (-1 * i) , to: Date())
+            let x = combinedTrans.filter { $0.toShortDate().isInSameMonth(as: previousMonth!) }
+        
+            let tot = x.reduce(0) { $0 + ($1.amount! > 0 ? $1.amount! : 0) }
+            total.insert(tot, at: 0)
+
+        }
+        return total
+        
+    }
+
+    
     func getTags() {
         let parameter = ["user": 1]
         let url = host + "get/tags"
@@ -30,7 +61,6 @@ class GlobalData: ObservableObject {
 
             switch response.result {
             case let .success(data):
-                print(data)
                 self.tags = data
 
             case let .failure(err):
@@ -63,17 +93,7 @@ class GlobalData: ObservableObject {
 
             switch response.result {
             case let .success(data):
-                var x = data
-                x.sort { (first, second) -> Bool in
-
-                    let date1 = Date.shortformatter.date(from: first.date!)!
-                    let date2 = Date.shortformatter.date(from: second.date!)!
-
-                    if date1 > date2 { return true }
-                    else { return false }
-                }
-                self.transactions = x
-
+                self.transactions = data.sorted(by: { $0.toShortDate() > $1.toShortDate() })
             case let .failure(err):
                 print(err)
             }

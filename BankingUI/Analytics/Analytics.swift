@@ -7,6 +7,7 @@
 
 import Alamofire
 import SwiftUI
+import SwiftUICharts
 
 struct Analytics: View {
     var body: some View {
@@ -38,7 +39,11 @@ struct Analytics: View {
                                     }
                                 }) {
                                 ZStack(alignment: .bottomLeading) {
-                                    Rectangle().foregroundColor(.blue)
+                                    Rectangle()
+                                        .fill(LinearGradient(gradient: Gradient(colors: [ColorGradient.orngPink.startColor,ColorGradient.orngPink.endColor]),
+                                                             startPoint: .bottom,
+                                                             endPoint: .top))
+                                        
                                         .cornerRadius(5)
                                     Text(name).fontWeight(.black)
                                         .padding()
