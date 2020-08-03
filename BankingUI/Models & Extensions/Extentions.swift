@@ -43,6 +43,10 @@ extension String {
     }
 }
 
+extension Calendar {
+    static let gregorian = Calendar(identifier: .gregorian)
+}
+    
 extension Date {
     static let formatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -89,6 +93,10 @@ extension Date {
     var isInTheFuture: Bool { self > Date() }
     var isInThePast:   Bool { self < Date() }
     
+    var startOfWeek: Date? {
+        return Calendar.gregorian.date(from: Calendar.gregorian.dateComponents([.yearForWeekOfYear, .weekOfYear], from: self))
+    }
+    
 }
 
 extension UIColor {
@@ -126,7 +134,7 @@ extension UIColor {
 }
 
 
-extension RandomAccessCollection { // the predicate version is not required to conform to Comparable
+extension RandomAccessCollection {
     func insertionIndex(for predicate: (Element) -> Bool) -> Index {
         var slice : SubSequence = self[...]
 

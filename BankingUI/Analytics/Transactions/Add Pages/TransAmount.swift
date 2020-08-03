@@ -11,7 +11,7 @@ class NewTransData: ObservableObject {
     @Published var amount = 0.0
     @Published var name = ""
     @Published var date = Date()
-    @Published var account: Account?
+    @Published var account: Account? = nil
 }
 
 struct TransAmount: View {

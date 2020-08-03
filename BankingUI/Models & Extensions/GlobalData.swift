@@ -16,11 +16,13 @@ class GlobalData: ObservableObject {
     @Published var transactions = TransactionCollection(){
         didSet{
             monthlySpendings = getMonthly()
+            weeklySpendings = getWeekly()
         }
     }
     
     @Published var monthlySpendings = [Double]()
-
+    @Published var weeklySpendings = [Double]()
+    
     init() {
         print("Network: Call Made")
         getTags()
@@ -28,6 +30,26 @@ class GlobalData: ObservableObject {
         getTransactions()
     }
 
+    func getWeekly() -> [Double] {
+    
+        var total: [Double] = []
+              
+        let today = Date()
+        let start = today.startOfWeek!
+
+        for i in 0...6{
+
+            let cursor = Calendar.current.date(byAdding: .day, value: i , to: start)
+
+            let trans = transactions.filter { $0.toShortDate().isInSameDay(as: cursor!) }
+            let tot = trans.reduce(0) { $0 + ($1.amount! > 0 ? $1.amount! : 0) }
+            total.append(tot)
+        
+        }
+        
+        return total
+        
+    }
     
     func getMonthly() -> [Double] {
     

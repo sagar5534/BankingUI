@@ -25,6 +25,7 @@
 		1B3365FE24CA1E4600028BBC /* TransactionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3365FD24CA1E4600028BBC /* TransactionList.swift */; };
 		1B888E7924CFC0BB000B3365 /* Overview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B888E7824CFC0BB000B3365 /* Overview.swift */; };
 		1B888E7B24CFE7EA000B3365 /* AccountsOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B888E7A24CFE7EA000B3365 /* AccountsOverview.swift */; };
+		1B9B6AA624D53DB60038D031 /* WeeklySpending.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B9B6AA524D53DB60038D031 /* WeeklySpending.swift */; };
 		1BB1431B24D07D8700A7C0B1 /* TransAmount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB1431A24D07D8700A7C0B1 /* TransAmount.swift */; };
 		1BB1431F24D083BF00A7C0B1 /* TransMerchant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB1431E24D083BF00A7C0B1 /* TransMerchant.swift */; };
 		1BB1432124D0848900A7C0B1 /* TransDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB1432024D0848900A7C0B1 /* TransDate.swift */; };
@@ -65,9 +66,10 @@
 		1B3365F824CA1B9900028BBC /* AccountRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRow.swift; sourceTree = "<group>"; };
 		1B3365FA24CA1C5400028BBC /* AddRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRow.swift; sourceTree = "<group>"; };
 		1B3365FD24CA1E4600028BBC /* TransactionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionList.swift; sourceTree = "<group>"; };
+		1B5EEA3B24D60516006E76E0 /* ChartView */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ChartView; path = ../../ChartView; sourceTree = "<group>"; };
 		1B888E7824CFC0BB000B3365 /* Overview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Overview.swift; sourceTree = "<group>"; };
 		1B888E7A24CFE7EA000B3365 /* AccountsOverview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsOverview.swift; sourceTree = "<group>"; };
-		1B9B6AA424D3BEA30038D031 /* ChartView */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ChartView; path = "../../../../../../Macintosh HD/Users/sagar/Projects/ChartView"; sourceTree = "<group>"; };
+		1B9B6AA524D53DB60038D031 /* WeeklySpending.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklySpending.swift; sourceTree = "<group>"; };
 		1BB1431A24D07D8700A7C0B1 /* TransAmount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransAmount.swift; sourceTree = "<group>"; };
 		1BB1431E24D083BF00A7C0B1 /* TransMerchant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransMerchant.swift; sourceTree = "<group>"; };
 		1BB1432024D0848900A7C0B1 /* TransDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransDate.swift; sourceTree = "<group>"; };
@@ -137,7 +139,7 @@
 		1B3365D324C9511200028BBC = {
 			isa = PBXGroup;
 			children = (
-				1B9B6AA424D3BEA30038D031 /* ChartView */,
+				1B5EEA3B24D60516006E76E0 /* ChartView */,
 				1B3365DE24C9511200028BBC /* BankingUI */,
 				1B3365DD24C9511200028BBC /* Products */,
 				C4ABCDA92AD497BF9B7155D4 /* Pods */,
@@ -181,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				1B07E0E424CA51FB000D9AD8 /* Analytics.swift */,
+				1B9B6AA524D53DB60038D031 /* WeeklySpending.swift */,
 				1B07E0DF24CA349D000D9AD8 /* Tags */,
 				1B07E0DA24CA314F000D9AD8 /* Accounts */,
 				1B07E0D924CA3137000D9AD8 /* Transactions */,
@@ -411,6 +414,7 @@
 				1BD90F0824CD27B00049758D /* TabBar.swift in Sources */,
 				1BB1433524D1C8B600A7C0B1 /* Card.swift in Sources */,
 				1BC9B59A24CE8FE400CAEB78 /* Currency.swift in Sources */,
+				1B9B6AA624D53DB60038D031 /* WeeklySpending.swift in Sources */,
 				1BD90F0F24CDFE690049758D /* AccountName.swift in Sources */,
 				1B07E0E324CA34B4000D9AD8 /* TagDetail.swift in Sources */,
 				1B888E7B24CFE7EA000B3365 /* AccountsOverview.swift in Sources */,

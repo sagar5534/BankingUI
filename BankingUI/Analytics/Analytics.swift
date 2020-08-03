@@ -10,6 +10,12 @@ import SwiftUI
 import SwiftUICharts
 
 struct Analytics: View {
+    
+    @EnvironmentObject var data: GlobalData
+    @State var chartData: [Double] = [4, 5, 6, 2, 13, 4, 3, 6]
+    
+    var blueStlye = ChartStyle(backgroundColor: ColorGradient.orangeBright, foregroundColor: .prplPink)
+
     var body: some View {
         NavigationView {
             VStack {
@@ -55,7 +61,31 @@ struct Analytics: View {
                     }
                 }
                 .padding(.leading, 20)
+                .padding(.bottom, 10)
+                
+                //----------------------------------------------------
+                
+                HStack {
+                    Text("Insights")
+                        .bold()
+                        .foregroundColor(.secondary)
+                        .textCase(.uppercase)
+                        .padding(.leading, 20)
+                        .padding(.top, 10)
+                    Spacer()
+                }
+                
+                HStack{
+                    WeeklySpending(title: "Weekly Spending", chartData: data.weeklySpendings)
+                    WeeklySpending(title: "Weekly Spending", chartData: [56, 45, 23, 33, 8, 76, 29])
+                    
+                }
+                .padding(.leading, 20)
+                .padding(.trailing, 20)
+                
+
                 Spacer()
+
             }
 
             .navigationTitle("Analytics")
