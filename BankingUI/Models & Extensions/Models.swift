@@ -124,6 +124,9 @@ struct Transaction: Codable, Identifiable, Hashable {
     func toDateString() -> String {
         return toDate().formatted
     }
+    func toShortDateString() -> String {
+        return toShortDate().formatted
+    }
 }
 
 typealias TransactionCollection = [Transaction]

@@ -11,9 +11,7 @@ import SwiftUICharts
 struct OverviewPage: View {
     @Environment(\.colorScheme) var colorScheme: ColorScheme
     @EnvironmentObject var data: GlobalData
-    
-    @State var chartData: [Double] = [4, 5, 6, 2, 13, 4, 3, 6]
-    
+        
     var blueStlye = ChartStyle(backgroundColor: ColorGradient.orangeBright, foregroundColor: .prplPink)
 
     var body: some View {
@@ -31,6 +29,7 @@ struct OverviewPage: View {
                 }
                 .padding(.leading, 22)
                 .padding(.bottom, 10)
+                
                 Divider()
 
                 // --------------------------------------------------
@@ -56,25 +55,6 @@ struct OverviewPage: View {
                                 .environmentObject(data)
                                 .padding()
                         }
-
-                        CardView(showShadow: colorScheme == .light) {
-                            VStack {
-                                ChartLabel("Monthly", type: .title)
-                                Text("Credit Card Spendings")
-                                    .font(.title3)
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-                                    .padding(.leading, 8)
-                            }
-                            .padding(.top, 15)
-                            .padding(.leading, 15)
-
-                            Divider()
-
-                            BarChart()
-                        }
-                        .data(data.monthlySpendings)
-                        .chartStyle(blueStlye)
-                        .frame(height: 300)
 
                     }.padding(.all, 22)
                 }

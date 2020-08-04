@@ -11,10 +11,41 @@ struct TransactionDetail: View {
     var transaction: Transaction
 
     var body: some View {
-        List {
-            Text(transaction.amount?.toMoney() ?? "")
+        
+        VStack{
+            HStack {
+                Text(transaction.toShortDateString())
+                    .fontWeight(.light)
+                    .foregroundColor(.secondary)
+                    .frame(height: 0, alignment: .leading)
+                Spacer()
+            }
+            .padding(.leading, 22)
+            .padding(.top, 5)
+            .padding(.bottom, 10)
+            
+            Divider()
+                .padding(.leading, 20)
+                .padding(.trailing, 20)
+            
+            //Value
+            HStack {
+                Text(transaction.amount!.toMoney())
+                    .fontWeight(.heavy)
+                    .font(.system(size: 70))
+                    .padding(.leading, 20)
+                    
+                Spacer()
+            }
+            
+            Spacer()
+            
+
         }
+        
         .navigationTitle(transaction.desc ?? "")
+        .navigationBarItems(trailing: EditButton())
+
     }
 }
 

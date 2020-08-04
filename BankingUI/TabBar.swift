@@ -22,6 +22,11 @@ struct TabBar: View {
                     Image(systemName: selected == 1 ? "chart.bar.fill" : "chart.bar")
                     Text("Analytics")
                 }.tag(1)
+            Goals()
+                .tabItem {
+                    Image(systemName: selected == 1 ? "flame.fill" : "flame")
+                    Text("Goals")
+                }.tag(2)
         }
     }
 }
