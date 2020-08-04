@@ -12,9 +12,9 @@ import SwiftUICharts
 struct Analytics: View {
     
     @EnvironmentObject var data: GlobalData
-    @State var chartData: [Double] = [4, 5, 6, 2, 13, 4, 3, 6]
     
-    var blueStlye = ChartStyle(backgroundColor: ColorGradient.orangeBright, foregroundColor: .prplPink)
+    var greenStlye = ChartStyle(backgroundColor: ColorGradient.orangeBright, foregroundColor: .green)
+    var pinkStlye = ChartStyle(backgroundColor: ColorGradient.orangeBright, foregroundColor: .prplPink)
 
     var body: some View {
         NavigationView {
@@ -28,41 +28,8 @@ struct Analytics: View {
                         .padding(.top, /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
                     Spacer()
                 }
-
-                let names = ["Transactions", "Tags", "Accounts"]
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(spacing: 10) {
-                        ForEach(names, id: \.self) { name in
-
-                            NavigationLink(destination:
-                                Group {
-                                    if name == "Transactions" {
-                                        TransactionList()
-                                    } else if name == "Tags" {
-                                        TagList()
-                                    } else {
-                                        AccountList()
-                                    }
-                                }) {
-                                ZStack(alignment: .bottomLeading) {
-                                    Rectangle()
-                                        .fill(LinearGradient(gradient: Gradient(colors: [ColorGradient.orngPink.startColor,ColorGradient.orngPink.endColor]),
-                                                             startPoint: .bottom,
-                                                             endPoint: .top))
-                                        
-                                        .cornerRadius(5)
-                                    Text(name).fontWeight(.black)
-                                        .padding()
-                                        .foregroundColor(.white)
-                                }
-                                .frame(width: 200, height: 200)
-                            }
-                        }
-                    }
-                }
-                .padding(.leading, 20)
-                .padding(.bottom, 10)
                 
+                ScrollingAnalyticsButtons()
                 //----------------------------------------------------
                 
                 HStack {
@@ -76,14 +43,13 @@ struct Analytics: View {
                 }
                 
                 HStack{
-                    WeeklySpending(title: "Weekly Spending", chartData: data.weeklySpendings)
-                    WeeklySpending(title: "Weekly Spending", chartData: [56, 45, 23, 33, 8, 76, 29])
+                    MiniChart(title: "Weekly Spending", chartData: data.weeklySpendings, style: greenStlye)
                     
+                    MiniChart(title: "Credit Spending", chartData: data.monthlySpendings, style: pinkStlye)
                 }
                 .padding(.leading, 20)
                 .padding(.trailing, 20)
                 
-
                 Spacer()
 
             }

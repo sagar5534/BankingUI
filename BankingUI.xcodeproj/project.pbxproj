@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B01E0C124D88A99008A3AAA /* ScrollingAnalyticsButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B01E0C024D88A99008A3AAA /* ScrollingAnalyticsButtons.swift */; };
+		1B01E0C224D8EE5A008A3AAA /* MiniChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B9B6AA524D53DB60038D031 /* MiniChart.swift */; };
 		1B07E0D824CA2EB3000D9AD8 /* TransactionDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B07E0D724CA2EB3000D9AD8 /* TransactionDetail.swift */; };
 		1B07E0DC24CA3162000D9AD8 /* AccountList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B07E0DB24CA3162000D9AD8 /* AccountList.swift */; };
 		1B07E0DE24CA316E000D9AD8 /* AccountDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B07E0DD24CA316E000D9AD8 /* AccountDetail.swift */; };
@@ -25,7 +27,6 @@
 		1B3365FE24CA1E4600028BBC /* TransactionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3365FD24CA1E4600028BBC /* TransactionList.swift */; };
 		1B888E7924CFC0BB000B3365 /* Overview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B888E7824CFC0BB000B3365 /* Overview.swift */; };
 		1B888E7B24CFE7EA000B3365 /* AccountsOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B888E7A24CFE7EA000B3365 /* AccountsOverview.swift */; };
-		1B9B6AA624D53DB60038D031 /* WeeklySpending.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B9B6AA524D53DB60038D031 /* WeeklySpending.swift */; };
 		1BB1431B24D07D8700A7C0B1 /* TransAmount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB1431A24D07D8700A7C0B1 /* TransAmount.swift */; };
 		1BB1431F24D083BF00A7C0B1 /* TransMerchant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB1431E24D083BF00A7C0B1 /* TransMerchant.swift */; };
 		1BB1432124D0848900A7C0B1 /* TransDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB1432024D0848900A7C0B1 /* TransDate.swift */; };
@@ -48,6 +49,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1B01E0C024D88A99008A3AAA /* ScrollingAnalyticsButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollingAnalyticsButtons.swift; sourceTree = "<group>"; };
 		1B07E0D724CA2EB3000D9AD8 /* TransactionDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetail.swift; sourceTree = "<group>"; };
 		1B07E0DB24CA3162000D9AD8 /* AccountList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountList.swift; sourceTree = "<group>"; };
 		1B07E0DD24CA316E000D9AD8 /* AccountDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetail.swift; sourceTree = "<group>"; };
@@ -69,7 +71,7 @@
 		1B5EEA3B24D60516006E76E0 /* ChartView */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ChartView; path = ../../ChartView; sourceTree = "<group>"; };
 		1B888E7824CFC0BB000B3365 /* Overview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Overview.swift; sourceTree = "<group>"; };
 		1B888E7A24CFE7EA000B3365 /* AccountsOverview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsOverview.swift; sourceTree = "<group>"; };
-		1B9B6AA524D53DB60038D031 /* WeeklySpending.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklySpending.swift; sourceTree = "<group>"; };
+		1B9B6AA524D53DB60038D031 /* MiniChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniChart.swift; sourceTree = "<group>"; };
 		1BB1431A24D07D8700A7C0B1 /* TransAmount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransAmount.swift; sourceTree = "<group>"; };
 		1BB1431E24D083BF00A7C0B1 /* TransMerchant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransMerchant.swift; sourceTree = "<group>"; };
 		1BB1432024D0848900A7C0B1 /* TransDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransDate.swift; sourceTree = "<group>"; };
@@ -183,7 +185,8 @@
 			isa = PBXGroup;
 			children = (
 				1B07E0E424CA51FB000D9AD8 /* Analytics.swift */,
-				1B9B6AA524D53DB60038D031 /* WeeklySpending.swift */,
+				1B01E0C024D88A99008A3AAA /* ScrollingAnalyticsButtons.swift */,
+				1B9B6AA524D53DB60038D031 /* MiniChart.swift */,
 				1B07E0DF24CA349D000D9AD8 /* Tags */,
 				1B07E0DA24CA314F000D9AD8 /* Accounts */,
 				1B07E0D924CA3137000D9AD8 /* Transactions */,
@@ -402,6 +405,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B01E0C224D8EE5A008A3AAA /* MiniChart.swift in Sources */,
+				1B01E0C124D88A99008A3AAA /* ScrollingAnalyticsButtons.swift in Sources */,
 				1BC9B59B24CE940E00CAEB78 /* CurrencyTextField.swift in Sources */,
 				1B07E0E124CA34A9000D9AD8 /* TagList.swift in Sources */,
 				1BB1431F24D083BF00A7C0B1 /* TransMerchant.swift in Sources */,
@@ -414,7 +419,6 @@
 				1BD90F0824CD27B00049758D /* TabBar.swift in Sources */,
 				1BB1433524D1C8B600A7C0B1 /* Card.swift in Sources */,
 				1BC9B59A24CE8FE400CAEB78 /* Currency.swift in Sources */,
-				1B9B6AA624D53DB60038D031 /* WeeklySpending.swift in Sources */,
 				1BD90F0F24CDFE690049758D /* AccountName.swift in Sources */,
 				1B07E0E324CA34B4000D9AD8 /* TagDetail.swift in Sources */,
 				1B888E7B24CFE7EA000B3365 /* AccountsOverview.swift in Sources */,
