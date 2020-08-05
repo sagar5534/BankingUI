@@ -7,10 +7,9 @@
 
 import SwiftUI
 import SwiftUICharts
- 
+
 struct ScrollingAnalyticsButtons: View {
     var body: some View {
-        
         let names = ["Transactions", "Tags", "Accounts"]
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 10) {
@@ -28,10 +27,10 @@ struct ScrollingAnalyticsButtons: View {
                         }) {
                         ZStack(alignment: .bottomLeading) {
                             Rectangle()
-                                .fill(LinearGradient(gradient: Gradient(colors: [ColorGradient.orngPink.startColor,ColorGradient.orngPink.endColor]),
+                                .fill(LinearGradient(gradient: Gradient(colors: [ColorGradient.orngPink.startColor, ColorGradient.orngPink.endColor]),
                                                      startPoint: .bottom,
                                                      endPoint: .top))
-                                
+
                                 .cornerRadius(5)
                             Text(name).fontWeight(.black)
                                 .padding()
@@ -44,7 +43,6 @@ struct ScrollingAnalyticsButtons: View {
         }
         .padding(.leading, 20)
         .padding(.bottom, 10)
-        
     }
 }
 

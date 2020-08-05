@@ -13,16 +13,16 @@ class GlobalData: ObservableObject {
 
     @Published var tags = TagCollection()
     @Published var accounts = AccountCollection()
-    @Published var transactions = TransactionCollection(){
-        didSet{
+    @Published var transactions = TransactionCollection() {
+        didSet {
             monthlySpendings = getMonthly()
             weeklySpendings = getWeekly()
         }
     }
-    
+
     @Published var monthlySpendings = [Double]()
     @Published var weeklySpendings = [Double]()
-    
+
     init() {
         print("Network: Call Made")
         getTags()
@@ -31,50 +31,41 @@ class GlobalData: ObservableObject {
     }
 
     func getWeekly() -> [Double] {
-    
         var total: [Double] = []
-              
+
         let today = Date()
         let start = today.startOfWeek!
 
-        for i in 0...6{
-
-            let cursor = Calendar.current.date(byAdding: .day, value: i , to: start)
+        for i in 0 ... 6 {
+            let cursor = Calendar.current.date(byAdding: .day, value: i, to: start)
 
             let trans = transactions.filter { $0.toShortDate().isInSameDay(as: cursor!) }
             let tot = trans.reduce(0) { $0 + ($1.amount! > 0 ? $1.amount! : 0) }
             total.append(tot)
-        
         }
-        
+
         return total
-        
     }
-    
+
     func getMonthly() -> [Double] {
-    
         var total: [Double] = []
         let creditAccounts = accounts.filterFor(type: bankType[1])
-        
+
         var combinedTrans: TransactionCollection = []
         for acc in creditAccounts {
             combinedTrans += transactions.filterByAccount(id: acc.id!)
         }
-              
-        for i in 1...7{
-            
-            let previousMonth = Calendar.current.date(byAdding: .month, value: (-1 * i) , to: Date())
+
+        for i in 1 ... 7 {
+            let previousMonth = Calendar.current.date(byAdding: .month, value: -1 * i, to: Date())
             let x = combinedTrans.filter { $0.toShortDate().isInSameMonth(as: previousMonth!) }
-        
+
             let tot = x.reduce(0) { $0 + ($1.amount! > 0 ? $1.amount! : 0) }
             total.insert(tot, at: 0)
-
         }
         return total
-        
     }
 
-    
     func getTags() {
         let parameter = ["user": 1]
         let url = host + "get/tags"

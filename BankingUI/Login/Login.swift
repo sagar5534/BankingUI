@@ -5,54 +5,40 @@
 //  Created by Sagar Patel on 2020-08-04.
 //
 
-import SwiftUI
 import AuthenticationServices
-
-
+import SwiftUI
 
 struct Login: View {
     var body: some View {
-        
         ZStack {
-            
             Image("LoginBG")
                 .resizable()
                 .edgesIgnoringSafeArea(.all)
-            
-            VStack{
-                
-                
+
+            VStack {
                 HStack {
                     VStack(alignment: .leading) {
-                            Image("Human")
-                                .resizable()
-                                .background(Color.white)
-                                .cornerRadius(10)
-                                .frame(width: 69, height: 69, alignment: .leading)
-                            Text("Banking Made")
-                                .fontWeight(.bold)
-                                .font(.system(size: 45))
-                                .foregroundColor(.white)
-                            Text("Simple")
-                                .fontWeight(.bold)
-                                .font(.system(size: 45))
-                                .foregroundColor(.white)
-                                
-
+                        Image("Human")
+                            .resizable()
+                            .background(Color.white)
+                            .cornerRadius(10)
+                            .frame(width: 69, height: 69, alignment: .leading)
+                        Text("Banking Made")
+                            .fontWeight(.bold)
+                            .font(.system(size: 45))
+                            .foregroundColor(.white)
+                        Text("Simple")
+                            .fontWeight(.bold)
+                            .font(.system(size: 45))
+                            .foregroundColor(.white)
                     }
                     .padding(.leading, 40)
                     .padding(.top, 40)
                     Spacer()
                 }
-                
-                
-                   
-                
 
-                
                 Spacer()
-                
-                
+
                 SignInWithAppleButton(
                     .signIn,
                     onRequest: { request in
@@ -61,10 +47,10 @@ struct Login: View {
                     },
                     onCompletion: { result in
                         switch result {
-                        case .success (let authResults):
+                        case let .success(authResults):
                             // 2
                             print("Authorization successful.")
-                        case .failure (let error):
+                        case let .failure(error):
                             // 3
                             print("Authorization failed: " + error.localizedDescription)
                         }
@@ -76,18 +62,10 @@ struct Login: View {
                 .padding(.leading, 40)
                 .padding(.trailing, 40)
                 .padding(.bottom, 40)
-                
-                
-                
             }
-            
-            
         }
-        
-            
     }
 }
-
 
 struct Login_Previews: PreviewProvider {
     static var previews: some View {

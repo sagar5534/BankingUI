@@ -10,9 +10,8 @@ import SwiftUI
 import SwiftUICharts
 
 struct Analytics: View {
-    
     @EnvironmentObject var data: GlobalData
-    
+
     var greenStlye = ChartStyle(backgroundColor: ColorGradient.orangeBright, foregroundColor: .green)
     var pinkStlye = ChartStyle(backgroundColor: ColorGradient.orangeBright, foregroundColor: .prplPink)
 
@@ -28,10 +27,10 @@ struct Analytics: View {
                         .padding(.top, /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
                     Spacer()
                 }
-                
+
                 ScrollingAnalyticsButtons()
-                //----------------------------------------------------
-                
+                // ----------------------------------------------------
+
                 HStack {
                     Text("Insights")
                         .bold()
@@ -41,17 +40,16 @@ struct Analytics: View {
                         .padding(.top, 10)
                     Spacer()
                 }
-                
-                HStack{
+
+                HStack {
                     MiniChart(title: "Weekly Spending", chartData: data.weeklySpendings, style: greenStlye)
-                    
+
                     MiniChart(title: "Credit Spending", chartData: data.monthlySpendings, style: pinkStlye)
                 }
                 .padding(.leading, 20)
                 .padding(.trailing, 20)
-                
-                Spacer()
 
+                Spacer()
             }
 
             .navigationTitle("Analytics")

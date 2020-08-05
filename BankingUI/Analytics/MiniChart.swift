@@ -9,13 +9,11 @@ import SwiftUI
 import SwiftUICharts
 
 struct MiniChart: View {
-    
     var title: String
     var chartData: [Double]
     var style: ChartStyle
 
     var body: some View {
-        
         CardView(showShadow: false) {
             ChartLabel(title, type: .subTitle)
                 .padding(.top, 10)
@@ -27,15 +25,14 @@ struct MiniChart: View {
         .data(chartData)
         .chartStyle(style)
         .frame(height: 200)
-        
     }
 }
 
 struct MiniChart_Previews: PreviewProvider {
     static var previews: some View {
-        HStack{
+        HStack {
             MiniChart(title: "Weekly Spending", chartData: [56, 45, 23, 33], style: ChartStyle(backgroundColor: ColorGradient.orangeBright, foregroundColor: .green))
-            
+
             MiniChart(title: "Weekly Spending", chartData: [56, 45, 23, 33], style: ChartStyle(backgroundColor: ColorGradient.orangeBright, foregroundColor: .green))
         }
     }

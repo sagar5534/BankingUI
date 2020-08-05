@@ -13,11 +13,11 @@ struct TransAccount: View {
     @EnvironmentObject var data: GlobalData
     @State private var selected = 0
     @State private var selected2 = 0
-    
+
     var filteredAccounts: [Account] {
         return data.accounts.filter { $0.type == bankType[selected].type }
     }
-    
+
     var body: some View {
         VStack(spacing: 10) {
             HStack {
@@ -45,15 +45,14 @@ struct TransAccount: View {
             .padding(.trailing, 20)
             .padding(.leading, 20)
             .pickerStyle(SegmentedPickerStyle())
-            .onChange(of: selected) { selected in
+            .onChange(of: selected) { _ in
                 selected2 = 0
-                
+
                 if filteredAccounts != [] {
                     TransData.account = filteredAccounts[selected2]
-                }else{
+                } else {
                     TransData.account = nil
                 }
-                
             }
 
             Form {

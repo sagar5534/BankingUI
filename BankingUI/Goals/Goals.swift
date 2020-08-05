@@ -9,14 +9,11 @@ import SwiftUI
 
 struct Goals: View {
     var body: some View {
-        
         NavigationView {
-            
             Text("Good Evening, Sagar")
 
-            .navigationTitle("Goals")
+                .navigationTitle("Goals")
         }
-        
     }
 }
 

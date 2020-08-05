@@ -46,7 +46,7 @@ extension String {
 extension Calendar {
     static let gregorian = Calendar(identifier: .gregorian)
 }
-    
+
 extension Date {
     static let formatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -71,10 +71,10 @@ extension Date {
     var formatted: String {
         return Date.formatter.string(from: self)
     }
-    
+
     func isEqual(to date: Date, toGranularity component: Calendar.Component, in calendar: Calendar = .current) -> Bool {
-            calendar.isDate(self, equalTo: date, toGranularity: component)
-        }
+        calendar.isDate(self, equalTo: date, toGranularity: component)
+    }
 
     func isInSameYear(as date: Date) -> Bool { isEqual(to: date, toGranularity: .year) }
     func isInSameMonth(as date: Date) -> Bool { isEqual(to: date, toGranularity: .month) }
@@ -82,21 +82,20 @@ extension Date {
 
     func isInSameDay(as date: Date) -> Bool { Calendar.current.isDate(self, inSameDayAs: date) }
 
-    var isInThisYear:  Bool { isInSameYear(as: Date()) }
+    var isInThisYear: Bool { isInSameYear(as: Date()) }
     var isInThisMonth: Bool { isInSameMonth(as: Date()) }
-    var isInThisWeek:  Bool { isInSameWeek(as: Date()) }
+    var isInThisWeek: Bool { isInSameWeek(as: Date()) }
 
     var isInYesterday: Bool { Calendar.current.isDateInYesterday(self) }
-    var isInToday:     Bool { Calendar.current.isDateInToday(self) }
-    var isInTomorrow:  Bool { Calendar.current.isDateInTomorrow(self) }
+    var isInToday: Bool { Calendar.current.isDateInToday(self) }
+    var isInTomorrow: Bool { Calendar.current.isDateInTomorrow(self) }
 
     var isInTheFuture: Bool { self > Date() }
-    var isInThePast:   Bool { self < Date() }
-    
+    var isInThePast: Bool { self < Date() }
+
     var startOfWeek: Date? {
         return Calendar.gregorian.date(from: Calendar.gregorian.dateComponents([.yearForWeekOfYear, .weekOfYear], from: self))
     }
-    
 }
 
 extension UIColor {
@@ -133,10 +132,9 @@ extension UIColor {
     }
 }
 
-
 extension RandomAccessCollection {
     func insertionIndex(for predicate: (Element) -> Bool) -> Index {
-        var slice : SubSequence = self[...]
+        var slice: SubSequence = self[...]
 
         while !slice.isEmpty {
             let middle = slice.index(slice.startIndex, offsetBy: slice.count / 2)
