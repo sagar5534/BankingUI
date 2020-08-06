@@ -14,6 +14,11 @@ struct Analytics: View {
 
     var greenStlye = ChartStyle(backgroundColor: ColorGradient.orangeBright, foregroundColor: .green)
     var pinkStlye = ChartStyle(backgroundColor: ColorGradient.orangeBright, foregroundColor: .prplPink)
+    
+    var sortedAccount: AccountCollection{
+        return data.accounts.sorted { $0.type! < $1.type! }
+    }
+    
 
     var body: some View {
         NavigationView {
@@ -26,8 +31,8 @@ struct Analytics: View {
                 }
                 .padding(.leading, 20)
                 .padding(.top, 10)
-
-                ScrollingAccountList(accounts: data.accounts)
+                
+                ScrollingAccountList(accounts: sortedAccount)
                     .padding(.leading, 20)
 
                 Leading {
