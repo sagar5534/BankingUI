@@ -16,27 +16,22 @@ struct Login: View {
                 .edgesIgnoringSafeArea(.all)
 
             VStack {
-                HStack {
+                Leading{
                     VStack(alignment: .leading) {
-                        Image("Human")
+                        Image(systemName: "bolt.horizontal.fill")
                             .resizable()
-                            .background(Color.white)
                             .cornerRadius(10)
-                            .frame(width: 69, height: 69, alignment: .leading)
-                        Text("Banking Made")
-                            .fontWeight(.bold)
-                            .font(.system(size: 45))
+                            .frame(width: 70, height: 35, alignment: .center)
                             .foregroundColor(.white)
-                        Text("Simple")
+                        Text("Banking Made\nSimple")
                             .fontWeight(.bold)
                             .font(.system(size: 45))
                             .foregroundColor(.white)
                     }
                     .padding(.leading, 40)
                     .padding(.top, 40)
-                    Spacer()
                 }
-
+                
                 Spacer()
 
                 SignInWithAppleButton(
@@ -47,7 +42,7 @@ struct Login: View {
                     },
                     onCompletion: { result in
                         switch result {
-                        case let .success(authResults):
+                        case let .success(_):
                             // 2
                             print("Authorization successful.")
                         case let .failure(error):
