@@ -11,6 +11,14 @@ import SwiftUICharts
 
 struct Analytics: View {
     @EnvironmentObject var data: GlobalData
+    
+    var netValue: Double {
+        var total = 0.0
+        for i in data.accounts {
+            total = total + i.totalValue!
+        }
+        return total
+    }
 
     var greenStlye = ChartStyle(backgroundColor: ColorGradient.orangeBright, foregroundColor: .green)
     var pinkStlye = ChartStyle(backgroundColor: ColorGradient.orangeBright, foregroundColor: .prplPink)
@@ -24,13 +32,25 @@ struct Analytics: View {
                         .foregroundColor(.secondary)
                         .textCase(.uppercase)
                         .padding(.leading, 20)
-                        .padding(.top, /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+                        .padding(.top, 10)
                     Spacer()
                 }
-
-                ScrollingAnalyticsButtons()
-                // ----------------------------------------------------
-
+                
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 10) {
+                        
+                        ScrollingAccounts(account: Account(id: 0, type: "NET", desc: "All Cards", totalValue: netValue), color: 0)
+                            .frame(width: 140, height: 250)
+                        
+                        ForEach(data.accounts.indices, id: \.self) { acc in
+                            ScrollingAccounts(account: data.accounts[acc], color: acc + 1)
+                                .frame(width: 140, height: 250)
+                        }
+                    }
+                }
+                .padding(.leading, 20)
+                .padding(.bottom, 10)
+                            
                 HStack {
                     Text("Insights")
                         .bold()
@@ -55,6 +75,8 @@ struct Analytics: View {
             .navigationTitle("Analytics")
         }
     }
+    
+    
 }
 
 struct Analytics_Previews: PreviewProvider {
