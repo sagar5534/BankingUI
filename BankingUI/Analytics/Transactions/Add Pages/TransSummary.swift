@@ -18,30 +18,29 @@ struct TransSummary: View {
 
     var body: some View {
         VStack(spacing: 10) {
-            HStack {
+            Leading {
                 Text("Summary")
                     .bold()
                     .fontWeight(.heavy)
                     .foregroundColor(.secondary)
                     .font(.system(size: 24))
                     .frame(height: 0, alignment: .leading)
-                    .padding(.top, 5)
-                Spacer()
             }
+            .padding(.top, 5)
+            .padding(.leading, 22)
 
             Divider()
                 .padding(.top, 20)
-                .padding(.bottom, 10)
 
             Text(TransData.amount.toMoney())
                 .fontWeight(.heavy)
                 .font(.system(size: 70))
                 .padding()
-                .padding(.trailing, 20)
 
             Form {
                 Section(header: Text("Merchant").italic()) {
                     Text(TransData.name)
+                        .padding()
                 }
 
                 Section(header: Text("Info").italic()) {
@@ -50,19 +49,20 @@ struct TransSummary: View {
                         Spacer()
                         Text(TransData.date.formatted)
                     }
+                    .padding()
 
                     HStack {
                         Text("Account")
                         Spacer()
                         Text(TransData.account?.desc ?? "Error")
                     }
+                    .padding()
                 }
             }
-            .padding(.trailing, 20)
+            .padding()
 
             Spacer()
         }
-        .padding(.leading, 20)
 
         .navigationTitle("Create a Transaction")
         .navigationBarItems(

@@ -12,30 +12,25 @@ struct TransactionDetail: View {
 
     var body: some View {
         VStack {
-            HStack {
-                Text(transaction.toShortDateString())
+           
+            Leading{
+                Text("hey")
                     .fontWeight(.light)
                     .foregroundColor(.secondary)
                     .frame(height: 0, alignment: .leading)
-                Spacer()
             }
+            .padding(.top, 10)
             .padding(.leading, 22)
-            .padding(.top, 5)
-            .padding(.bottom, 10)
 
             Divider()
-                .padding(.leading, 20)
-                .padding(.trailing, 20)
+                .padding(.top, 20)
 
-            // Value
-            HStack {
+            Leading {
                 Text(transaction.amount!.toMoney())
                     .fontWeight(.heavy)
                     .font(.system(size: 70))
-                    .padding(.leading, 20)
-
-                Spacer()
             }
+            .padding(.leading, 22)
 
             Spacer()
         }

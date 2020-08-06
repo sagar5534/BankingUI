@@ -15,7 +15,6 @@ class NewAccountData: ObservableObject {
 
 struct AccountName: View {
     @Binding var showingDetail: Bool
-
     @State private var showingAlert = false
     @State private var AccountData = NewAccountData()
     @State private var text: String = ""

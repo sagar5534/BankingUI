@@ -16,7 +16,7 @@ struct Login: View {
                 .edgesIgnoringSafeArea(.all)
 
             VStack {
-                Leading{
+                Leading {
                     VStack(alignment: .leading) {
                         Image(systemName: "bolt.horizontal.fill")
                             .resizable()
@@ -31,7 +31,7 @@ struct Login: View {
                     .padding(.leading, 40)
                     .padding(.top, 40)
                 }
-                
+
                 Spacer()
 
                 SignInWithAppleButton(
@@ -42,7 +42,7 @@ struct Login: View {
                     },
                     onCompletion: { result in
                         switch result {
-                        case let .success(_):
+                        case let .success:
                             // 2
                             print("Authorization successful.")
                         case let .failure(error):

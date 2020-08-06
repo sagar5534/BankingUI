@@ -20,43 +20,38 @@ struct TransAccount: View {
 
     var body: some View {
         VStack(spacing: 10) {
-            HStack {
+            Leading {
                 Text("Select an account")
                     .bold()
                     .fontWeight(.heavy)
                     .foregroundColor(.secondary)
                     .font(.system(size: 24))
                     .frame(height: 0, alignment: .leading)
-                    .padding(.top, 5)
-                Spacer()
             }
-            .padding(.leading, 20)
+            .padding(.top, 5)
+            .padding(.leading, 22)
 
             Divider()
                 .padding(.top, 20)
-                .padding(.bottom, 10)
-                .padding(.leading, 20)
-
-            Picker("Account", selection: $selected) {
-                ForEach(0 ..< bankType.count) { number in
-                    Text(bankType[number].name)
-                }
-            }
-            .padding(.trailing, 20)
-            .padding(.leading, 20)
-            .pickerStyle(SegmentedPickerStyle())
-            .onChange(of: selected) { _ in
-                selected2 = 0
-
-                if filteredAccounts != [] {
-                    TransData.account = filteredAccounts[selected2]
-                } else {
-                    TransData.account = nil
-                }
-            }
 
             Form {
                 Section {
+                    Picker("Account", selection: $selected) {
+                        ForEach(0 ..< bankType.count) { number in
+                            Text(bankType[number].name)
+                        }
+                    }
+                    .padding()
+                    .pickerStyle(SegmentedPickerStyle())
+                    .onChange(of: selected) { _ in
+                        selected2 = 0
+                        if filteredAccounts != [] {
+                            TransData.account = filteredAccounts[selected2]
+                        } else {
+                            TransData.account = nil
+                        }
+                    }
+                    
                     Picker(selection: $selected2, label: Text("Account")) {
                         let x = data.accounts.filter { $0.type == bankType[selected].type }
 
@@ -66,8 +61,7 @@ struct TransAccount: View {
                     }
                     .id(selected)
                     .pickerStyle(DefaultPickerStyle())
-                    .padding(.leading, 20)
-                    .padding(.trailing, 20)
+                    .padding()
                 }
             }
 

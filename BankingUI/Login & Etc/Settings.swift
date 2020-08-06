@@ -11,16 +11,15 @@ struct Settings: View {
     @State private var currency = 0
 
     var strengths = ["CAD", "USD"]
-    
-    @State private var showImagePicker : Bool = false
-    @State private var image : Image? = Image("profile")
 
-    
+    @State private var showImagePicker: Bool = false
+    @State private var image: Image? = Image("profile")
+
     var body: some View {
         List {
             HStack {
                 Spacer()
-                VStack{
+                VStack {
                     image!.resizable()
                         .aspectRatio(contentMode: .fill)
                         .frame(width: 150, height: 150)
@@ -29,14 +28,13 @@ struct Settings: View {
                         .shadow(radius: 3)
                         .padding(.top, 10)
                         .padding(.bottom, 5)
-                    
-                    Button(action: { self.showImagePicker.toggle()}) {
+
+                    Button(action: { self.showImagePicker.toggle() }) {
                         Text("Change Image")
                     }
                 }
                 Spacer()
             }
-            
 
             Section(header: Text("User")) {
                 NavigationLink(
@@ -57,7 +55,6 @@ struct Settings: View {
                     Text("s.72427patel@gmail.com")
                         .foregroundColor(Color(UIColor.secondaryLabel))
                 }
-            
             }
 
             Section(header: Text("Accounts")) {
@@ -74,9 +71,6 @@ struct Settings: View {
                             .foregroundColor(Color(UIColor.secondaryLabel))
                     }
                 }
-                
-                
-                
             }
 
             Section(header: Text("Terms and Policies")) {
@@ -116,12 +110,11 @@ struct Settings: View {
         .onAppear {
             UITableView.appearance().backgroundColor = .clear
         }
-        
-        .sheet(isPresented: self.$showImagePicker){
+
+        .sheet(isPresented: self.$showImagePicker) {
             PhotoCaptureView(showImagePicker: self.$showImagePicker, image: self.$image)
         }
     }
-
 }
 
 struct Settings_Previews: PreviewProvider {

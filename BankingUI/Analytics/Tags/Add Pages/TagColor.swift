@@ -11,7 +11,6 @@ import SwiftUI
 struct TagColor: View {
     @EnvironmentObject var observed: GlobalData
     @EnvironmentObject var TagData: NewTagData
-
     @Binding var showingDetail: Bool
     @State private var showingAlert = false
     @State private var selected: Index = Index(row: 0, col: 0)
@@ -33,16 +32,18 @@ struct TagColor: View {
         ]
 
         VStack(alignment: .center, spacing: 10) {
-            HStack {
-                Text("Pick a color for " + TagData.name)
+            
+            Leading{
+                Text("Pick a color" + TagData.name)
                     .bold()
                     .fontWeight(.heavy)
                     .foregroundColor(.secondary)
                     .font(.system(size: 24))
                     .frame(height: 0, alignment: .leading)
-                    .padding(.top, 5)
-                Spacer()
             }
+            .padding(.top, 5)
+            .padding(.leading, 22)
+
 
             Divider()
                 .padding(.top, 20)
@@ -72,7 +73,6 @@ struct TagColor: View {
 
             Spacer()
         }
-        .padding(.leading, 20)
         .navigationTitle("Create a Tag")
         .navigationBarItems(
             trailing: Button(action: {
@@ -112,7 +112,7 @@ struct TagColor: View {
             case let .success(data):
                 observed.tags.append(data)
                 self.showingDetail.toggle()
-            case let .failure:
+            case .failure:
                 showingAlert.toggle()
             }
         }

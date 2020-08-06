@@ -6,12 +6,11 @@
 //
 
 import SwiftUI
-import SwiftUICharts
 
 struct AccountCard: View {
     @State var account: Account
+    @Environment(\.colorScheme) var colorScheme: ColorScheme
 
-    var colorScheme: ColorScheme
     var color: Int
 
     var body: some View {
@@ -67,6 +66,8 @@ struct AccountCard: View {
             string = colorScheme == .light ? "card-black" : "card-white"
         case "CASH":
             string = colorScheme == .light ? "piggy-black" : "piggy-white"
+        case "NET":
+            string = colorScheme == .light ? "chart-black" : "chart-white"
         default:
             string = colorScheme == .light ? "piggy-black" : "piggy-white"
         }
@@ -77,7 +78,7 @@ struct AccountCard: View {
 
 struct ScrollingAccounts_Previews: PreviewProvider {
     static var previews: some View {
-        AccountCard(account: Account(id: 7, type: "CREDIT", desc: "My Credit", totalValue: 988.80), colorScheme: .light, color: 1)
+        AccountCard(account: Account(id: 7, type: "CREDIT", desc: "My Credit", totalValue: 988.80), color: 1)
             .frame(width: 150, height: 250)
     }
 }

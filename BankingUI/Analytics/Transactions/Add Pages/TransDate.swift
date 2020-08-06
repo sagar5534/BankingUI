@@ -13,28 +13,27 @@ struct TransDate: View {
 
     var body: some View {
         VStack(spacing: 10) {
-            HStack {
+            Leading {
                 Text("Date")
                     .bold()
                     .fontWeight(.heavy)
                     .foregroundColor(.secondary)
                     .font(.system(size: 24))
                     .frame(height: 0, alignment: .leading)
-                    .padding(.top, 5)
-                Spacer()
             }
+            .padding(.top, 5)
+            .padding(.leading, 22)
 
             Divider()
                 .padding(.top, 20)
 
             DatePicker("", selection: $TransData.date, displayedComponents: .date)
                 .datePickerStyle(GraphicalDatePickerStyle())
-                .frame(maxHeight: 400)
-                .padding(.trailing, 20)
+                .frame(height: 375, alignment: .top)
+                .padding()
 
             Spacer()
         }
-        .padding(.leading, 20)
 
         .navigationTitle("Create a Transaction")
         .navigationBarItems(

@@ -16,7 +16,6 @@ class NewTransData: ObservableObject {
 
 struct TransAmount: View {
     @Binding var showingDetail: Bool
-
     @State private var TransData = NewTransData()
     @State private var value: Double? = 0.0
     @State private var selected = 0

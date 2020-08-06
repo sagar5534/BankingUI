@@ -14,16 +14,16 @@ struct GeneralTextField: View {
 
     var body: some View {
         VStack(spacing: 10) {
-            HStack {
+            Leading {
                 Text(title)
                     .bold()
                     .fontWeight(.heavy)
                     .foregroundColor(.secondary)
                     .font(.system(size: 24))
                     .frame(height: 0, alignment: .leading)
-                    .padding(.top, 5)
-                Spacer()
             }
+            .padding(.top, 5)
+            .padding(.leading, 22)
 
             Divider()
                 .padding(.top, 20)
@@ -32,9 +32,9 @@ struct GeneralTextField: View {
                 .textFieldStyle(PlainTextFieldStyle())
                 .multilineTextAlignment(.leading)
                 .font(.system(size: CGFloat(50), weight: Font.Weight.medium))
+                .padding(.leading, 22)
 
             Spacer()
         }
-        .padding(.leading, 20)
     }
 }

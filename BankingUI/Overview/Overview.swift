@@ -13,33 +13,13 @@ struct OverviewPage: View {
     @EnvironmentObject var data: GlobalData
 
     var blueStlye = ChartStyle(backgroundColor: ColorGradient.orangeBright, foregroundColor: .prplPink)
-    @State var showingDetail = false
+    @State var showingAddTrans = false
 
     var body: some View {
         NavigationView {
             VStack {
                 ScrollView {
                     VStack(spacing: 20) {
-                        Card(showShadow: colorScheme == .light) {
-                            HStack {
-                                Text("Accounts")
-                                    .bold()
-                                    .font(.title)
-                                    .font(.system(size: 32))
-                                    .padding(EdgeInsets(top: 16.0, leading: 8.0, bottom: 0.0, trailing: 8.0))
-
-                                Spacer()
-                            }
-                            .padding(.top, 15)
-                            .padding(.leading, 15)
-
-                            Divider()
-
-                            AccountsOverview(colorScheme: colorScheme)
-                                .environmentObject(data)
-                                .padding()
-                        }
-
                         HStack {
                             Card(showShadow: colorScheme == .light) {
                                 ZStack(alignment: .bottom) {
@@ -65,16 +45,12 @@ struct OverviewPage: View {
                                     .padding()
 
                                 }.onTapGesture {
-                                    self.showingDetail.toggle()
-                                }.sheet(isPresented: $showingDetail) {
-                                    TransAmount(showingDetail: $showingDetail).environmentObject(data)
+                                    self.showingAddTrans.toggle()
+                                }.sheet(isPresented: $showingAddTrans) {
+                                    TransAmount(showingDetail: $showingAddTrans).environmentObject(data)
                                 }
                             }
                             .aspectRatio(CGSize(width: 16, height: 16), contentMode: .fill)
-
-                            Card(showShadow: colorScheme == .light) {
-                                Text("HEY")
-                            }
                         }
 
                     }.padding(.all, 22)

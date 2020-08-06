@@ -11,7 +11,7 @@ struct AddRow: View {
     var name: String
 
     var body: some View {
-        HStack {
+        Leading {
             Image(systemName: "plus.circle.fill").resizable()
                 .foregroundColor(.blue)
                 .frame(width: 40.0, height: 40.0)
@@ -19,7 +19,6 @@ struct AddRow: View {
             Text(name)
                 .bold()
                 .font(.system(size: 18))
-            Spacer()
         }
         .padding()
     }

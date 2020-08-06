@@ -12,12 +12,11 @@ struct TagRow: View {
     var color: Color
 
     var body: some View {
-        HStack {
+        Leading {
             BorderedCircle(color: color)
                 .padding(.trailing, 4)
                 .frame(width: 40, height: 25)
             Text(name)
-            Spacer()
         }
         .padding()
     }

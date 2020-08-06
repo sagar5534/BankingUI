@@ -9,7 +9,6 @@ import SwiftUI
 
 struct TagList: View {
     @EnvironmentObject var data: GlobalData
-
     @State var isEditMode: EditMode = .inactive
     @State var showingDetail = false
 
@@ -21,8 +20,11 @@ struct TagList: View {
                 .onTapGesture {
                     self.showingDetail.toggle()
                 }
-            ForEach(data.tags, id: \.self) { tag in
+                .sheet(isPresented: $showingDetail) {
+                    TagName(showingDetail: $showingDetail).environmentObject(newTag).environmentObject(data)
+                }
 
+            ForEach(data.tags, id: \.self) { tag in
                 NavigationLink(destination: TagDetail(tag: tag)) {
                     TagRow(name: tag.name ?? "", color: .init(UIColor(hex: tag.color ?? "") ?? .red))
                 }
@@ -30,14 +32,10 @@ struct TagList: View {
             .onDelete(perform: delete)
         }
         .listStyle(PlainListStyle())
-
         .navigationTitle("Tags")
         .navigationBarItems(trailing: EditButton())
         .navigationViewStyle(DefaultNavigationViewStyle())
         .environment(\.editMode, self.$isEditMode)
-        .sheet(isPresented: $showingDetail) {
-            TagName(showingDetail: $showingDetail).environmentObject(newTag).environmentObject(data)
-        }
     }
 
     func delete(at offsets: IndexSet) {
