@@ -17,8 +17,7 @@ struct AccountType: View {
 
     var body: some View {
         VStack(spacing: 10) {
-            
-            Leading{
+            Leading {
                 Text("Select an account type")
                     .bold()
                     .fontWeight(.heavy)

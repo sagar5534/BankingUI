@@ -18,7 +18,7 @@ struct AccountSummary: View {
 
     var body: some View {
         VStack(spacing: 10) {
-            Leading{
+            Leading {
                 Text("Summary")
                     .bold()
                     .fontWeight(.heavy)

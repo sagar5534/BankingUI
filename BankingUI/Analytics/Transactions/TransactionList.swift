@@ -24,7 +24,7 @@ struct TransactionList: View {
             }
             .pickerStyle(SegmentedPickerStyle())
             .padding()
-            
+
             List {
                 AddRow(name: "Add a Transaction")
                     .onTapGesture {

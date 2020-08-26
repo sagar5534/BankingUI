@@ -32,8 +32,7 @@ struct TagColor: View {
         ]
 
         VStack(alignment: .center, spacing: 10) {
-            
-            Leading{
+            Leading {
                 Text("Pick a color" + TagData.name)
                     .bold()
                     .fontWeight(.heavy)
@@ -43,7 +42,6 @@ struct TagColor: View {
             }
             .padding(.top, 5)
             .padding(.leading, 22)
-
 
             Divider()
                 .padding(.top, 20)
@@ -99,7 +97,7 @@ struct TagColor: View {
     }
 
     func createCall(name: String, color: String) {
-        let url = "http://lunar.local:4000/" + "create/tag"
+        let url = observed.host + "create/tag"
         let parameter = [
             "user": 1,
             "name": name,

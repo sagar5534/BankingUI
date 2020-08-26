@@ -138,6 +138,33 @@ extension TransactionCollection {
         let z = insertionIndex { $0.toShortDate() > new.toShortDate() }
         insert(new, at: z)
     }
+    
+    func getMonthly() -> [Double] {
+        var total: [Double] = []
+       
+        
+        let calendar = Calendar(identifier: .gregorian)
+        let groupedDates = Dictionary(grouping: self) { (date) in
+            return calendar.dateInterval(of: .month, for: date.toShortDate())?.start ?? Date.distantPast
+        }
+        
+//        let availableMonths = groupedDates.keys.sorted()
+        for i in groupedDates{
+            let x = i.value.reduce(0) { $0 + ($1.amount! > 0 ? $1.amount! : 0) }
+            total.append(x)
+        }
+        
+//        for i in 1 ... 7 {
+//            let previousMonth = Calendar.current.date(byAdding: .month, value: -1 * i, to: Date())
+//            let x = self.filter { $0.toShortDate().isInSameMonth(as: previousMonth!) }
+//
+//            let tot = x.reduce(0) { $0 + ($1.amount! > 0 ? $1.amount! : 0) }
+//            total.insert(tot, at: 0)
+//        }
+        
+        return total
+    }
+    
 }
 
 // MARK: - Overview

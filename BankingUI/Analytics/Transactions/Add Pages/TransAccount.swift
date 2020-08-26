@@ -51,7 +51,7 @@ struct TransAccount: View {
                             TransData.account = nil
                         }
                     }
-                    
+
                     Picker(selection: $selected2, label: Text("Account")) {
                         let x = data.accounts.filter { $0.type == bankType[selected].type }
 

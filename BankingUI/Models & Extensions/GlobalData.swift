@@ -9,8 +9,10 @@ import Alamofire
 import Foundation
 
 class GlobalData: ObservableObject {
-    let host = "http://lunar.local:4000/"
-
+    //let host = "http://lunar.local:4000/"
+    
+    let host = "https://banking.sagarpatel.ml/"
+    
     @Published var tags = TagCollection()
     @Published var accounts = AccountCollection()
     @Published var transactions = TransactionCollection() {

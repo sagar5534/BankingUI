@@ -12,8 +12,7 @@ struct TransactionDetail: View {
 
     var body: some View {
         VStack {
-           
-            Leading{
+            Leading {
                 Text("hey")
                     .fontWeight(.light)
                     .foregroundColor(.secondary)

@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct ScrollingAccountList: View {
-    @State var accounts: AccountCollection
-
+    //@State var accounts: AccountCollection
+    
+    @EnvironmentObject var data: GlobalData
+    
     var netValue: Double {
-        return accounts.reduce(0) { $0 + ($1.totalValue ?? 0) }
+        return data.accounts.reduce(0) { $0 + ($1.totalValue ?? 0) }
     }
 
     var body: some View {
@@ -21,18 +23,24 @@ struct ScrollingAccountList: View {
 
                 AccountCard(account: netAcc, color: 0)
                     .frame(width: 140, height: 250)
+                    .foregroundColor(.primary)
 
-                ForEach(accounts.indices, id: \.self) { acc in
-                    AccountCard(account: accounts[acc], color: acc + 1)
-                        .frame(width: 140, height: 250)
+                ForEach(data.accounts.indices, id: \.self) { acc in
+
+                    NavigationLink(destination: AccountDetail(account: data.accounts[acc])) {
+                        AccountCard(account: data.accounts[acc], color: acc + 1)
+                            .frame(width: 140, height: 250)
+                            .foregroundColor(.primary)
+                    }
                 }
             }
+            .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
         }
     }
 }
 
 struct ScrollingAccountList_Previews: PreviewProvider {
     static var previews: some View {
-        ScrollingAccountList(accounts: [])
+        ScrollingAccountList()
     }
 }

@@ -28,13 +28,12 @@ struct Currency: View {
 
             Divider()
                 .padding(.top, 20)
-            
+
             CurrencyTextField("Amount", value: $value)
                 .font(.largeTitle)
                 .foregroundColor(.blue)
                 .multilineTextAlignment(TextAlignment.leading)
                 .padding(.leading, 22)
-
 
             Picker(selection: $selected, label: Text("")) {
                 ForEach(0 ..< options.count) {
@@ -50,7 +49,6 @@ struct Currency: View {
 }
 
 struct Currency_Previews: PreviewProvider {
-
     static var previews: some View {
         Currency(title: "", options: ["1", "2"], value: .constant(5.5), selected: .constant(1))
     }

@@ -40,12 +40,43 @@ struct TransactionRow: View {
     }
 }
 
+struct TransactionRowLimited: View {
+    var transaction: Transaction
+
+    var body: some View {
+        HStack {
+            VStack(alignment: .leading) {
+                Text(transaction.desc ?? "")
+                    .fontWeight(.semibold)
+                    .font(.system(size: 18))
+                    .lineLimit(1)
+
+                Text(transaction.date ?? "")
+                    .font(.system(size: 13))
+                    .fontWeight(.light)
+            }
+            Spacer()
+
+            Text(transaction.amount?.toMoney() ?? "")
+                .italic()
+                .fontWeight(.thin)
+                .font(.system(size: 20))
+                .padding(.leading, 10)
+        }
+        .padding()
+    }
+}
+
 struct TransactionRow_Previews: PreviewProvider {
     static var previews: some View {
         let trans = Transaction(desc: "Starbucks", amount: 15.99)
         let account = Account(type: "BANK", desc: "My Visa", totalValue: 0)
 
-        TransactionRow(transaction: trans, account: account)
-            .previewLayout(.fixed(width: 400, height: 90))
+        Group {
+            TransactionRow(transaction: trans, account: account)
+                .previewLayout(.fixed(width: 400, height: 90))
+            TransactionRowLimited(transaction: trans)
+                .previewLayout(.fixed(width: 400, height: 90))
+        }
     }
 }

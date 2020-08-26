@@ -1,5 +1,5 @@
 //
-//  Analytics.swift
+//  Analy/Volumes/Macintosh HD/Users/sagar/Projects/ChartViewtics.swift
 //  BankingUI
 //
 //  Created by Sagar Patel on 2020-07-23.
@@ -11,42 +11,52 @@ import SwiftUICharts
 
 struct Analytics: View {
     @EnvironmentObject var data: GlobalData
+    @State var showingNewAccount = false
 
     var greenStlye = ChartStyle(backgroundColor: ColorGradient.orangeBright, foregroundColor: .green)
     var pinkStlye = ChartStyle(backgroundColor: ColorGradient.orangeBright, foregroundColor: .prplPink)
-    
-    var sortedAccount: AccountCollection{
+
+    var sortedAccount: AccountCollection {
         return data.accounts.sorted { $0.type! < $1.type! }
     }
-    
 
     var body: some View {
         NavigationView {
             ScrollView {
-                Leading {
-                    Text("Account")
-                        .bold()
-                        .foregroundColor(.secondary)
-                        .textCase(.uppercase)
-                }
-                .padding(.leading, 20)
-                .padding(.top, 10)
                 
-                ScrollingAccountList(accounts: sortedAccount)
-                    .padding(.leading, 20)
-
-                Leading {
-                    Text("Insights")
-                        .bold()
-                        .foregroundColor(.secondary)
-                        .textCase(.uppercase)
+                ElementTitle(title: "Accounts") {
+                    Button(action: {
+                        showingNewAccount.toggle()
+                    }, label: {
+                        Text("Add")
+                    })
                 }
-                .padding(.leading, 20)
-                .padding(.top, 10)
+                .padding()
+
+                ScrollingAccountList().environmentObject(data)
+
+                // ----------------------------------------------
+                ElementTitle(title: "Manage") {}
+                    .padding()
 
                 HStack {
-                    MiniChart(title: "Weekly Spending", chartData: data.weeklySpendings, style: greenStlye)
+                    NavigationLink(destination: TransactionList()) {
+                        ManageButtons(name: "All Transactions")
+                    }
+                    NavigationLink(destination: TagList()) {
+                        ManageButtons(name: "Manage Tags")
+                    }
+                }
+                .frame(height: 185)
+                .padding(.leading, 20)
+                .padding(.trailing, 20)
 
+                // -----------------------------------------------------
+                
+                ElementTitle(title: "Insights") {}
+                    .padding()
+
+                HStack {
                     MiniChart(title: "Credit Spending", chartData: data.monthlySpendings, style: pinkStlye)
                 }
                 .padding(.leading, 20)
@@ -54,6 +64,9 @@ struct Analytics: View {
             }
 
             .navigationTitle("Analytics")
+            .sheet(isPresented: $showingNewAccount) {
+                AccountName(showingDetail: $showingNewAccount).environmentObject(data)
+            }
         }
     }
 }
