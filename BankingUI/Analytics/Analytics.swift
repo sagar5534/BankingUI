@@ -40,11 +40,11 @@ struct Analytics: View {
                     .padding()
 
                 HStack {
-                    NavigationLink(destination: TransactionList()) {
-                        ManageButtons(name: "All Transactions")
+                    NavigationLink(destination: TransactionList(trans: data.transactions)) {
+                        ManageButtons(name: "All Transactions", image: "card-white")
                     }
                     NavigationLink(destination: TagList()) {
-                        ManageButtons(name: "Manage Tags")
+                        ManageButtons(name: "Manage Tags", image: "tag-white")
                     }
                 }
                 .frame(height: 185)

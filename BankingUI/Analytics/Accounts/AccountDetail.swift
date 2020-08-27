@@ -9,19 +9,27 @@ import SwiftUI
 import SwiftUICharts
 
 struct AccountDetail: View {
-    
     var account: Account
     var chartData: [Double] {
         return (account.transactions?.getMonthly())!
     }
     var pinkStlye = ChartStyle(backgroundColor: ColorGradient.orangeBright, foregroundColor: .prplPink)
+    
+    @EnvironmentObject var data: GlobalData
+    @State var showingDetail = false
+
 
     var body: some View {
         ScrollView {
+            
+            //NEEDS TESTING
+            AddRow(name: "Add a Transaction")
+                .onTapGesture {
+                    self.showingDetail.toggle()
+                }.sheet(isPresented: $showingDetail) {
+                    TransAmount(showingDetail: $showingDetail).environmentObject(data)
+                }
 
-            NavigationLink(destination: TransactionList()) {
-                AddRow(name: "Add a Transaction")
-            }
             
             CardView(showShadow: false){
                 
@@ -38,7 +46,7 @@ struct AccountDetail: View {
             
             VStack {
                 ElementTitle(title: "Recent Transactions") {
-                    NavigationLink(destination: TransactionList()) {
+                    NavigationLink(destination: TransactionList(trans: account.transactions)) {
                         Text("See All")
                     }
                 }

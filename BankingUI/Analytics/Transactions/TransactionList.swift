@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct TransactionList: View {
-    @EnvironmentObject var data: GlobalData
 
     var filters = ["3 Months", "6 Months", "All"]
+    
+    @State var trans: TransactionCollection?
     @State private var filterSelected: Int = 0
     @State var isEditMode: EditMode = .inactive
     @State var showingDetail = false
@@ -30,15 +31,19 @@ struct TransactionList: View {
                     .onTapGesture {
                         self.showingDetail.toggle()
                     }.sheet(isPresented: $showingDetail) {
-                        TransAmount(showingDetail: $showingDetail).environmentObject(data)
+                        //TransAmount(showingDetail: $showingDetail).environmentObject(data)
                     }
 
-                ForEach(data.transactions, id: \.self) { tran in
-
-                    let acc = data.accounts.getAccount(accountId: tran.accountID!)
+                ForEach(trans ?? [], id: \.self) { tran in
+                    
                     NavigationLink(destination: TransactionDetail(transaction: tran)) {
-                        TransactionRow(transaction: tran, account: acc)
+                      TransactionRowLimited(transaction: tran)
                     }
+                        
+//                    let acc = data.accounts.getAccount(accountId: tran.accountID!)
+//                    NavigationLink(destination: TransactionDetail(transaction: tran)) {
+//                        TransactionRow(transaction: tran, account: acc)
+//                    }
                 }
                 .onDelete(perform: delete)
             }
@@ -52,18 +57,15 @@ struct TransactionList: View {
     }
 
     func delete(at offsets: IndexSet) {
-        data.deleteTransaction(id: offsets.first!)
-        data.transactions.remove(atOffsets: offsets)
+        //data.deleteTransaction(id: offsets.first!)
+        trans?.remove(atOffsets: offsets)
     }
 }
 
 struct TransactionList_Previews: PreviewProvider {
     static var previews: some View {
-        let observed = GlobalData()
-
         NavigationView {
-            TransactionList()
-                .environmentObject(observed)
+            TransactionList(trans: [Transaction(id: 1, desc: "HEY", amount: 45.3)])
         }
     }
 }
